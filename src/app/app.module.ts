@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ApiServiceService } from './api-service.service';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { ApiServiceService } from './api-service.service';
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [ApiServiceService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
