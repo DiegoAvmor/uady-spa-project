@@ -1,3 +1,4 @@
+import { ResourceDetailsComponent } from './resource-details/resource-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,8 @@ import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResourceDetailsComponent
   ],
   imports: [
     BrowserModule,
