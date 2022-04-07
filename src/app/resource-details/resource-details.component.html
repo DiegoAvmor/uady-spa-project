@@ -1,10 +1,78 @@
 
-
-<div *ngIf="!isLoading" style="height: 100%;" layout="row" layout-xs="column">
-    <div style="background-color: black; height: 200px;">
-        <img src={{details.images.jpg.large_image_url}} alt="Background image">
-    </div>
-    <div style="background-color: blue; height: 200px;">
-
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="!isLoading" class="p-5 mat-app-background">
+    <div class="row">
+        <div class="col-3">
+            <mat-card class="example-card">
+                <img mat-card-image src={{details.images.jpg.large_image_url}} alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <h3 class="text-center">Alternative titles</h3>
+                    <mat-divider></mat-divider>
+                    <div class="pb-2">
+                        <span *ngIf="details.title_synonyms.length > 0">
+                            <p>Synonyms:</p>
+                            <p *ngFor="let synonym of details.title_synonyms">{{synonym}}</p>
+                        </span>
+                        <span *ngIf="details.title_japanese">
+                            <p>Japanese: {{details.title_japanese}}</p>
+                        </span>
+                        <span *ngIf="details.title_english">
+                            <p>English: {{details.title_english}}</p>
+                        </span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-9">
+            <div>
+                <h1>{{details.title}} <small class="text-muted">({{details.type}})</small></h1>
+                <h2>{{details.title_japanese}}</h2>
+                <mat-chip-list *ngFor="let genre of details.genres" aria-label="genres">
+                    <mat-chip color="primary">{{genre.name}}</mat-chip>
+                </mat-chip-list>
+                <div class="row mt-3 text-center p-2">
+                    <div class="col-2">
+                        <p class="mat-title">Score</p>
+                        <p class="mat-title">{{details.score}}</p>
+                        <p>{{details.scored_by}} users</p>
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-3">
+                                <p class="mat-title">Rank #</p>
+                                <p>{{details.rank}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Popularity #</p>
+                                <p>{{details.popularity}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Status #</p>
+                                <p>{{details.status}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Favorites #</p>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+                                <p>{{details.favorites}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <h3>Synopsis</h3>
+                    <mat-divider></mat-divider>
+                    <p class="text-justify">
+                        {{details.synopsis}}
+                    </p>
+                </div>
+                <div *ngIf="details.background">
+                    <h3>Background</h3>
+                    <mat-divider></mat-divider>
+                    <p class="text-justify">
+                        {{details.background}}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -15,7 +15,7 @@ export class ResourceDetailsComponent implements OnInit {
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.getResourceDetailsByNameAndId('anime',23);
+    this.getResourceDetailsByNameAndId('manga',67);
   }
 
 
