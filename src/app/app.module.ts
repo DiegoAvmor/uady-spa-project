@@ -13,10 +13,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ComasListPipe } from './pipes/comas-list.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ResourceDetailsComponent
+    ResourceDetailsComponent,
+    ComasListPipe
   ],
   imports: [
     BrowserModule,
