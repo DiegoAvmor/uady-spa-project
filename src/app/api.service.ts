@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  getResourceDetailsByTypeAndId(type:string,id:number):Observable<ResourceDetails>{
+  getResourceDetailsByTypeAndId(type:string,id:string):Observable<ResourceDetails>{
     return this.http.get<any>(this.apiUrl + `/${type}/${id}`).pipe(
       //map((response:Data) => new ResourceDetails(response.data)),
       tap(_ => console.log(`Got data from resource ${type} with id ${id}`)),
