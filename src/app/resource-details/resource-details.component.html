@@ -1,0 +1,97 @@
+
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="!isLoading" class="p-5 mat-app-background">
+    <div class="row">
+        <div class="col-md-3">
+            <!--Resource card-->
+            <mat-card>
+                <img mat-card-image src={{details.images.jpg.large_image_url}} alt="Resource cover">
+                <mat-card-content>
+                    <h3 class="text-center">Alternative titles</h3>
+                    <mat-divider></mat-divider>
+                    <div class="mt-5">
+                        <span *ngIf="details.title_synonyms.length > 0">
+                            <p>Synonyms: <span>{{details.title_synonyms | comasList }}</span></p>
+                        </span>
+                        <span *ngIf="details.title_japanese">
+                            <p>Japanese: {{details.title_japanese}}</p>
+                        </span>
+                        <span *ngIf="details.title_english">
+                            <p>English: {{details.title_english}}</p>
+                        </span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <!--Saved and Rate resource-->
+            <mat-card class="mt-2 mb-5">
+                <mat-card-content>
+                    <button class="btn btn-primary w-100" *ngIf="isSaved">Save</button>
+                    <button class="btn btn-danger w-100" *ngIf="!isSaved">Remove</button>
+                    <div class="form-group">
+                        <label>Personal rating:</label>
+                        <select #selector class="form-select" name="rating" id="ratingSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-9">
+            <!--Resource details-->
+            <div>
+                <h1>{{details.title}} <small class="text-muted">({{details.type}})</small></h1>
+                <h2>{{details.title_japanese}}</h2>
+                <mat-chip-list aria-label="genres">
+                    <mat-chip *ngFor="let genre of details.genres" color="primary">{{genre.name}}</mat-chip>
+                </mat-chip-list>
+                <div class="row mt-3 text-center p-2">
+                    <div class="col-2">
+                        <p class="mat-title">Score</p>
+                        <p class="mat-title">{{details.score}}</p>
+                        <p>{{details.scored_by | number}} users</p>
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-3">
+                                <p class="mat-title">Rank #</p>
+                                <p class="mat-title">{{details.rank | number}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Popularity #</p>
+                                <p class="mat-title">{{details.popularity | number}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Status #</p>
+                                <p class="mat-title">{{details.status}}</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="mat-title">Favorites #</p>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+                                <p>{{details.favorites | number}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <h3>Synopsis</h3>
+                    <mat-divider></mat-divider>
+                    <p class="text-justify">{{details.synopsis}}</p>
+                </div>
+                <div *ngIf="details.background">
+                    <h3>Background</h3>
+                    <mat-divider></mat-divider>
+                    <p class="text-justify">{{details.background}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
