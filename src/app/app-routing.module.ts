@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ResourceDetailsComponent } from "./resource-details/resource-details.component";
+import { ResourceDetailsView } from "./views/resource-details-view/resource-details-view.component";
 
 const routes: Routes = [
-  { path: "resource/:type/:id", component: ResourceDetailsComponent },
+  { path: "resource/:type/:id", component: ResourceDetailsView },
 ];
 
 @NgModule({

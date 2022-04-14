@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { ApiService } from "../api.service";
-import { ResourceDetails } from "./resource-details";
+import { ApiService } from "../../services/api.service";
+import { ResourceDetails } from "../../models/resource-details";
 
 @Component({
   selector: "app-resource-details",
-  templateUrl: "./resource-details.component.html",
-  styleUrls: ["./resource-details.component.sass"],
+  templateUrl: "./resource-details-view.component.html",
+  styleUrls: ["./resource-details-view.component.sass"],
 })
-export class ResourceDetailsComponent implements OnInit {
+export class ResourceDetailsView implements OnInit {
   details!: ResourceDetails;
   isLoading: boolean = true;
   isRated: boolean = true;
