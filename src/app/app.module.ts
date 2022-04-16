@@ -14,12 +14,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ComasListPipe } from './pipes/comas-list.pipe';
+import { HomeViewComponent } from './home-view/home-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResourceDetailsComponent,
-    ComasListPipe
+    ComasListPipe,
+    HomeViewComponent
   ],
   imports: [
     BrowserModule,
