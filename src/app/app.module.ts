@@ -24,6 +24,7 @@ import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-link.component";
 import { MatInputModule } from "@angular/material/input";
 import { NavbarItemButtonComponent } from "./components/ui/navbar-item-button/navbar-button.component";
+import { ProfileViewComponent } from './views/profile-view/profile-view.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NavbarItemButtonComponent } from "./components/ui/navbar-item-button/na
     SearchViewComponent,
     NavbarItemLinkComponent,
     NavbarItemButtonComponent,
+    ProfileViewComponent,
   ],
   imports: [
     BrowserModule,
