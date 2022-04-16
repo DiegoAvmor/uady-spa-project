@@ -26,4 +26,12 @@ export class NavbarComponent {
   performSearch() {
     this.router.navigateByUrl(`/search?query=${this.searchTerm}`);
   }
+
+  loginButtonCallback() {
+    console.log("Login button has been clicked.");
+  }
+
+  signUpButtonCallback() {
+    console.log("Sign up button has been clicked.");
+  }
 }

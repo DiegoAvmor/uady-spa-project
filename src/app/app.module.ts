@@ -23,6 +23,7 @@ import { ContactViewComponent } from "./views/contact-view/contact-view.componen
 import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-item-link.component";
 import { MatInputModule } from "@angular/material/input";
+import { NavbarItemButtonComponent } from './components/ui/navbar-item-button/navbar-item-button.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatInputModule } from "@angular/material/input";
     ContactViewComponent,
     SearchViewComponent,
     NavbarItemLinkComponent,
+    NavbarItemButtonComponent,
   ],
   imports: [
     BrowserModule,

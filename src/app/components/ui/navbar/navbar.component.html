@@ -33,9 +33,15 @@
         />
       </div>
 
-      <a mat-button>Login</a>
+      <app-navbar-item-button
+        label="Login"
+        [callback]="loginButtonCallback"
+      ></app-navbar-item-button>
 
-      <a mat-button>Sign up</a>
+      <app-navbar-item-button
+        label="Sign up"
+        [callback]="signUpButtonCallback"
+      ></app-navbar-item-button>
     </div>
   </nav>
 </mat-toolbar>
