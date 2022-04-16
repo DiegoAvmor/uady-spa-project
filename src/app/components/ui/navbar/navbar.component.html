@@ -1,26 +1,30 @@
 <mat-toolbar color="primary">
   <nav>
-    <app-navbar-item-link
-      redirectUrl="/animes"
-      [activeUrl]="activeUrl"
-      label="Animes"
-    ></app-navbar-item-link>
+    <div>
+      <app-navbar-item-link
+        redirectUrl="/animes"
+        [activeUrl]="activeUrl"
+        label="Animes"
+      ></app-navbar-item-link>
 
-    <app-navbar-item-link
-      redirectUrl="/mangas"
-      [activeUrl]="activeUrl"
-      label="Mangas"
-    >
-    </app-navbar-item-link>
+      <app-navbar-item-link
+        redirectUrl="/mangas"
+        [activeUrl]="activeUrl"
+        label="Mangas"
+      >
+      </app-navbar-item-link>
 
-    <app-navbar-item-link
-      redirectUrl="/contact"
-      [activeUrl]="activeUrl"
-      label="Contact"
-    ></app-navbar-item-link>
+      <app-navbar-item-link
+        redirectUrl="/contact"
+        [activeUrl]="activeUrl"
+        label="Contact"
+      ></app-navbar-item-link>
+    </div>
 
-    <a mat-button>Login</a>
+    <div>
+      <a mat-button>Login</a>
 
-    <a mat-button>Sign up</a>
+      <a mat-button>Sign up</a>
+    </div>
   </nav>
 </mat-toolbar>
