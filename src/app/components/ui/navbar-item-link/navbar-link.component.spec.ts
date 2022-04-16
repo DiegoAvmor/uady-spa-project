@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NavbarItemLinkComponent } from './navbar-item-link.component';
+import { NavbarItemLinkComponent } from "./navbar-link.component";
 
-describe('NavbarItemLinkComponent', () => {
+describe("NavbarItemLinkComponent", () => {
   let component: NavbarItemLinkComponent;
   let fixture: ComponentFixture<NavbarItemLinkComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarItemLinkComponent ]
-    })
-    .compileComponents();
+      declarations: [NavbarItemLinkComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('NavbarItemLinkComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

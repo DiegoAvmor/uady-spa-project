@@ -1,24 +1,24 @@
 <mat-toolbar color="primary">
   <nav id="navbar">
     <div>
-      <app-navbar-item-link
+      <app-navbar-link
         redirectUrl="/animes"
         [activeUrl]="activeUrl"
         label="Animes"
-      ></app-navbar-item-link>
+      ></app-navbar-link>
 
-      <app-navbar-item-link
+      <app-navbar-link
         redirectUrl="/mangas"
         [activeUrl]="activeUrl"
         label="Mangas"
       >
-      </app-navbar-item-link>
+      </app-navbar-link>
 
-      <app-navbar-item-link
+      <app-navbar-link
         redirectUrl="/contact"
         [activeUrl]="activeUrl"
         label="Contact"
-      ></app-navbar-item-link>
+      ></app-navbar-link>
     </div>
 
     <div>
@@ -33,15 +33,15 @@
         />
       </div>
 
-      <app-navbar-item-button
+      <app-navbar-button
         label="Login"
         [callback]="loginButtonCallback"
-      ></app-navbar-item-button>
+      ></app-navbar-button>
 
-      <app-navbar-item-button
+      <app-navbar-button
         label="Sign up"
         [callback]="signUpButtonCallback"
-      ></app-navbar-item-button>
+      ></app-navbar-button>
     </div>
   </nav>
 </mat-toolbar>

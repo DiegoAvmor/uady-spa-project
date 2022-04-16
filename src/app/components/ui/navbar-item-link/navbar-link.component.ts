@@ -1,9 +1,9 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "app-navbar-item-link",
-  templateUrl: "./navbar-item-link.component.html",
-  styleUrls: ["./navbar-item-link.component.sass"],
+  selector: "app-navbar-link",
+  templateUrl: "./navbar-link.component.html",
+  styleUrls: ["./navbar-link.component.sass"],
 })
 export class NavbarItemLinkComponent {
   @Input() redirectUrl = "";
