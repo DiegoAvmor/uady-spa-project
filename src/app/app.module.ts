@@ -21,6 +21,7 @@ import { AnimesViewComponent } from "./views/animes-view/animes-view.component";
 import { MangasViewComponent } from "./views/mangas-view/mangas-view.component";
 import { ContactViewComponent } from "./views/contact-view/contact-view.component";
 import { SearchViewComponent } from "./views/search-view/search-view.component";
+import { NavbarItemLinkComponent } from './components/ui/navbar-item-link/navbar-item-link.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SearchViewComponent } from "./views/search-view/search-view.component";
     MangasViewComponent,
     ContactViewComponent,
     SearchViewComponent,
+    NavbarItemLinkComponent,
   ],
   imports: [
     BrowserModule,

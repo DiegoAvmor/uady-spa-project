@@ -1,9 +1,26 @@
 <mat-toolbar color="primary">
   <nav>
-    <a mat-button routerLink="/animes">Animes</a>
-    <a mat-button routerLink="/mangas">Mangas</a>
-    <a mat-button routerLink="/contact">Contact</a>
+    <app-navbar-item-link
+      redirectUrl="/animes"
+      [activeUrl]="activeUrl"
+      label="Animes"
+    ></app-navbar-item-link>
+
+    <app-navbar-item-link
+      redirectUrl="/mangas"
+      [activeUrl]="activeUrl"
+      label="Mangas"
+    >
+    </app-navbar-item-link>
+
+    <app-navbar-item-link
+      redirectUrl="/contact"
+      [activeUrl]="activeUrl"
+      label="Contact"
+    ></app-navbar-item-link>
+
     <a mat-button>Login</a>
+
     <a mat-button>Sign up</a>
   </nav>
 </mat-toolbar>
