@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <nav>
+  <nav id="navbar">
     <div>
       <app-navbar-item-link
         redirectUrl="/animes"
@@ -22,6 +22,17 @@
     </div>
 
     <div>
+      <div id="navbar__search-bar">
+        <mat-icon id="navbar__search-bar__icon">search</mat-icon>
+        <input
+          id="navbar__search-bar__input"
+          type="text"
+          placeholder="Search"
+          [(ngModel)]="searchTerm"
+          (keyup.enter)="performSearch()"
+        />
+      </div>
+
       <a mat-button>Login</a>
 
       <a mat-button>Sign up</a>

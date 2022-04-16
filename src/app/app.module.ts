@@ -21,7 +21,8 @@ import { AnimesViewComponent } from "./views/animes-view/animes-view.component";
 import { MangasViewComponent } from "./views/mangas-view/mangas-view.component";
 import { ContactViewComponent } from "./views/contact-view/contact-view.component";
 import { SearchViewComponent } from "./views/search-view/search-view.component";
-import { NavbarItemLinkComponent } from './components/ui/navbar-item-link/navbar-item-link.component';
+import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-item-link.component";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { NavbarItemLinkComponent } from './components/ui/navbar-item-link/navbar
     MatProgressBarModule,
     MatToolbarModule,
     MatButtonModule,
+    MatInputModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

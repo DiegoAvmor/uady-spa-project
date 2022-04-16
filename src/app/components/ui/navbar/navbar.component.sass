@@ -1,4 +1,31 @@
-nav
+#navbar
   display: flex
   width: 100%
   justify-content: space-between
+  font-size: 1rem
+
+  &__search-bar
+    font-size: inherit
+    display: inline-flex
+    align-items: center
+    position: relative
+
+    &__icon
+      position: absolute
+      left: 0.25em
+      color: white
+
+    &__input
+      width: 8em
+      transition: width 0.25s ease
+      padding-left: 2.25em
+      background: #5c2dac
+      outline: none
+      border: none
+      color: white
+
+      &:focus
+        width: 14em
+
+      &::placeholder
+        color: #f0f0f0
