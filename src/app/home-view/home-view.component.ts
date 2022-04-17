@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Anime } from './anime';
 import { Manga } from './manga';
-
+import * as $ from 'jquery'
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',
-  styleUrls: ['./home-view.component.sass']
+  styleUrls: ['./home-view.component.css']
 })
 export class HomeViewComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class HomeViewComponent implements OnInit {
     this.getTopAnime();
     //this.getTopManga();
     //this.getThisSeason();
+    this.scrollCarousel()
   }
 
   getTopAnime(){
@@ -82,6 +83,29 @@ export class HomeViewComponent implements OnInit {
         },
       }
     );
+  }
+
+  scrollCarousel(){
+    var carouselWidth = 8000;
+    var cardWidth = 600;
+    var scrollPosition = 0;
+
+    $(".carousel-control-next").on("click", function () {
+      if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
+        scrollPosition += cardWidth;  //update scroll position
+        $(".carousel-inner").animate({ scrollLeft: scrollPosition },600); //scroll left
+      }
+    });
+
+    $(".carousel-control-prev").on("click", function () {
+      if (scrollPosition > 0) {
+        scrollPosition -= cardWidth;
+        $(".carousel-inner").animate(
+          { scrollLeft: scrollPosition },
+          600
+        );
+      }
+    });
   }
 
 }
