@@ -1,0 +1,47 @@
+<mat-toolbar id="navbar" color="primary">
+  <div id="navbar__navigation">
+    <app-navbar-link
+      redirectUrl="/animes"
+      [activeUrl]="activeUrl"
+      label="Animes"
+    ></app-navbar-link>
+
+    <app-navbar-link
+      redirectUrl="/mangas"
+      [activeUrl]="activeUrl"
+      label="Mangas"
+    >
+    </app-navbar-link>
+
+    <app-navbar-link
+      redirectUrl="/contact"
+      [activeUrl]="activeUrl"
+      label="Contact"
+    ></app-navbar-link>
+  </div>
+
+  <div id="navbar__actions">
+    <div id="navbar__actions__searchbar">
+      <mat-icon id="navbar__actions__searchbar__icon">search</mat-icon>
+      <input
+        id="navbar__actions__searchbar__input"
+        type="text"
+        placeholder="Search"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="performSearch()"
+      />
+    </div>
+
+    <div id="navbar__actions__auth">
+      <app-navbar-button
+        label="Login"
+        [callback]="loginButtonCallback"
+      ></app-navbar-button>
+
+      <app-navbar-button
+        label="Sign up"
+        [callback]="signUpButtonCallback"
+      ></app-navbar-button>
+    </div>
+  </div>
+</mat-toolbar>
