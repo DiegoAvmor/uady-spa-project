@@ -4,16 +4,16 @@
   <span>}}</span>
 </h1>
 
-<h2>Saved animes & mangas</h2>
-
 <div class="saved-items">
   <app-profile-saved-items
     itemCategory="Anime"
     [dataSource]="savedAnimes"
+    headerTitle="Saved animes"
   ></app-profile-saved-items>
 
   <app-profile-saved-items
     itemCategory="Manga"
     [dataSource]="savedMangas"
+    headerTitle="Saved mangas"
   ></app-profile-saved-items>
 </div>

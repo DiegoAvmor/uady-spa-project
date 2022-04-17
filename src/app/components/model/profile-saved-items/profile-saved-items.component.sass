@@ -1,14 +1,35 @@
 @import "variables"
 
-table
-  width: 100%
+$border: solid 1px #e0e0e0
 
-// Column widths.
-.mat-column-itemCategory
-  width: 64%
-.mat-column-rating
-  width: 12%
-.mat-column-status
-  width: 12%
-.mat-column-year
-  width: 12%
+.saved-items
+  border: $border
+
+  &__header
+    widht: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1em
+    border-bottom: $border
+
+    &__title
+      margin: 0em
+
+    &__export-options
+      display: flex
+      gap: 1em
+      align-items: center
+
+  &__table
+    width: 100%
+
+    // Table column widths.
+    & .mat-column-itemCategory
+      width: 64%
+    & .mat-column-rating
+      width: 12%
+    & .mat-column-status
+      width: 12%
+    & .mat-column-year
+      width: 12%

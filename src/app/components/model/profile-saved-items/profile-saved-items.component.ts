@@ -8,6 +8,7 @@ import { SavedItem } from "src/app/models/SavedItem";
   styleUrls: ["./profile-saved-items.component.sass"],
 })
 export class ProfileSavedItemsComponent {
+  @Input() headerTitle!: string;
   @Input() dataSource!: SavedItem[];
   @Input() itemCategory!: ItemCategory;
 
