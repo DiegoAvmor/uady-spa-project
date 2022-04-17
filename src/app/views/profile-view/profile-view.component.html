@@ -1,1 +1,19 @@
-<p>profile-view works!</p>
+<h1>
+  <span>{{</span>
+  <span>username</span>
+  <span>}}</span>
+</h1>
+
+<h2>Saved animes & mangas</h2>
+
+<div class="saved-items">
+  <app-profile-saved-items
+    itemCategory="Anime"
+    [dataSource]="savedAnimes"
+  ></app-profile-saved-items>
+
+  <app-profile-saved-items
+    itemCategory="Manga"
+    [dataSource]="savedMangas"
+  ></app-profile-saved-items>
+</div>
