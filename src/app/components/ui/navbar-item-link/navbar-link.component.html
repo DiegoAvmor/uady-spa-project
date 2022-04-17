@@ -1,0 +1,10 @@
+<a
+  mat-button
+  disableRipple="true"
+  routerLink="{{ redirectUrl }}"
+  class="{{
+    activeUrl === redirectUrl ? 'active-item-link' : 'inactive-item-link'
+  }}"
+>
+  {{ label }}
+</a>
