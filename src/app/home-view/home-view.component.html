@@ -1,6 +1,6 @@
 <div class="d-flex bd-highlight">
   <div class="me-auto p-2 bd-highlight">
-    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+    <a color="primary" mat-stroked-button href="#" target="_blank">
       This Season
     </a>
   </div>
@@ -9,7 +9,7 @@
 <div id="carouselThisSeason" class="carousel" data-bs-ride="carousel">
   <div id="carouselInnerThisSeason" class="carousel-inner">
     <div class="carousel-item active" *ngFor="let item of thisSeason">
-      <div class="card">
+      <div class="card" (click)="goToElement('anime',item)">
         <div class="img-wrapper">
           <img src="{{ item.images.jpg.image_url }}" class="d-block w-100" alt="{{ item.title }}">
         </div>
@@ -35,7 +35,7 @@
 
 <div class="d-flex bd-highlight">
   <div class="me-auto p-2 bd-highlight">
-    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+    <a color="primary" mat-stroked-button href="#" target="_blank">
       Top Anime
     </a>
   </div>
@@ -44,7 +44,7 @@
 <div id="carouselTopAnime" class="carousel" data-bs-ride="carousel">
   <div id="carouselInnerTopAnime" class="carousel-inner prevAnime">
     <div class="carousel-item active" *ngFor="let item of topAnime">
-      <div class="card">
+      <div class="card" (click)="goToElement('anime',item)">
         <div class="img-wrapper">
           <img src="{{ item.images.jpg.image_url }}" class="d-block w-100" alt="{{ item.title }}">
         </div>
@@ -70,7 +70,7 @@
 
 <div class="d-flex bd-highlight">
   <div class="me-auto p-2 bd-highlight">
-    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+    <a color="primary" mat-stroked-button href="#" target="_blank">
       Top Manga
     </a>
   </div>
@@ -79,7 +79,7 @@
 <div id="carouselTopManga" class="carousel" data-bs-ride="carousel">
   <div id="carouselInnerTopManga" class="carousel-inner">
     <div class="carousel-item active" *ngFor="let item of topManga">
-      <div class="card">
+      <div class="card" (click)="goToElement('manga' ,item)">
         <div class="img-wrapper">
           <img src="{{ item.images.jpg.image_url }}" class="d-block w-100" alt="{{ item.title }}">
         </div>

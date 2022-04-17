@@ -4,6 +4,7 @@ import { ApiService } from '../services/api.service';
 import { Anime } from './anime';
 import { Manga } from './manga';
 import * as $ from 'jquery'
+import { Card } from './card';
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',
@@ -154,5 +155,10 @@ export class HomeViewComponent implements OnInit {
         );
       }
     });
+  }
+
+  goToElement(type:String , item : Card){
+    console.log(type)
+    console.log(item.mal_id)
   }
 }
