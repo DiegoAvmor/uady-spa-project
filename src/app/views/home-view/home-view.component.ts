@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterContentInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../services/api.service';
-import { Anime } from './anime';
-import { Manga } from './manga';
+import { ApiService } from '../../services/api.service';
+import { Card } from '../../models/card';
+import { Anime } from '../../models/anime';
+import { Manga } from '../../models/manga';
 import * as $ from 'jquery'
-import { Card } from './card';
 @Component({
   selector: 'app-home-view',
   templateUrl: './home-view.component.html',

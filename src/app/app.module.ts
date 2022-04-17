@@ -24,7 +24,7 @@ import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-link.component";
 import { MatInputModule } from "@angular/material/input";
 import { NavbarItemButtonComponent } from "./components/ui/navbar-item-button/navbar-button.component";
-import { HomeViewComponent } from "./home-view/home-view.component";
+import { HomeViewComponent } from "./views/home-view/home-view.component";
 
 @NgModule({
   declarations: [

@@ -2,8 +2,8 @@ import { environment } from "../../environments/environment";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
-import { Anime } from "../home-view/anime";
-import { Manga } from "../home-view/manga";
+import { Anime } from "../models/anime";
+import { Manga } from "../models/manga";
 import { ResourceDetails } from "../models/resource-details";
 @Injectable({
   providedIn: "root",
