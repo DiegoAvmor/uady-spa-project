@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterContentInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { Anime } from './anime';
 import { Manga } from './manga';
 import * as $ from 'jquery'

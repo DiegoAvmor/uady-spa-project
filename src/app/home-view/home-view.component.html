@@ -1,3 +1,46 @@
+<div class="d-flex bd-highlight">
+  <div class="me-auto p-2 bd-highlight">
+    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+      This Season
+    </a>
+  </div>
+</div>
+
+<div id="carouselThisSeason" class="carousel" data-bs-ride="carousel">
+  <div id="carouselInnerThisSeason" class="carousel-inner">
+    <div class="carousel-item active" *ngFor="let item of thisSeason">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="{{ item.images.jpg.image_url }}" class="d-block w-100" alt="{{ item.title }}">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="prevThisSeasonButton" class="carousel-control-prev" type="button" data-bs-target="#carouselThisSeason"
+    data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button id="nextThisSeasonButton" class="carousel-control-next" type="button" data-bs-target="#carouselThisSeason"
+    data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="d-flex bd-highlight">
+  <div class="me-auto p-2 bd-highlight">
+    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+      Top Anime
+    </a>
+  </div>
+</div>
+
 <div id="carouselTopAnime" class="carousel" data-bs-ride="carousel">
   <div id="carouselInnerTopAnime" class="carousel-inner prevAnime">
     <div class="carousel-item active" *ngFor="let item of topAnime">
@@ -23,6 +66,16 @@
   </button>
 </div>
 
+<mat-divider></mat-divider>
+
+<div class="d-flex bd-highlight">
+  <div class="me-auto p-2 bd-highlight">
+    <a color="primary" mat-stroked-button href="https://www.google.com/" target="_blank">
+      Top Manga
+    </a>
+  </div>
+</div>
+
 <div id="carouselTopManga" class="carousel" data-bs-ride="carousel">
   <div id="carouselInnerTopManga" class="carousel-inner">
     <div class="carousel-item active" *ngFor="let item of topManga">
@@ -42,31 +95,6 @@
     <span class="visually-hidden">Previous</span>
   </button>
   <button id="nextMangaButton" class="carousel-control-next" type="button" data-bs-target="#carouselTopManga"
-    data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<div id="carouselThisSeason" class="carousel" data-bs-ride="carousel">
-  <div id="carouselInnerThisSeason" class="carousel-inner">
-    <div class="carousel-item active" *ngFor="let item of thisSeason">
-      <div class="card">
-        <div class="img-wrapper">
-          <img src="{{ item.images.jpg.image_url }}" class="d-block w-100" alt="{{ item.title }}">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button id="prevThisSeasonButton" class="carousel-control-prev" type="button" data-bs-target="#carouselThisSeason"
-    data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button id="nextThisSeasonButton" class="carousel-control-next" type="button" data-bs-target="#carouselThisSeason"
     data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
