@@ -27,6 +27,7 @@ import { NavbarItemButtonComponent } from "./components/ui/navbar-item-button/na
 import { ProfileViewComponent } from "./views/profile-view/profile-view.component";
 import { ProfileSavedItemsComponent } from "./components/model/profile-saved-items/profile-saved-items.component";
 import { MatTableModule } from "@angular/material/table";
+import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatTableModule } from "@angular/material/table";
     NavbarItemButtonComponent,
     ProfileViewComponent,
     ProfileSavedItemsComponent,
+    SignUpViewComponent,
   ],
   imports: [
     BrowserModule,
