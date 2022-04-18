@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import { ItemCategory } from "src/app/models/utils/ItemCategory";
 import { SavedItem } from "src/app/models/SavedItem";
 
 const dummyAnimes: SavedItem[] = [
@@ -40,14 +41,13 @@ const dummyMangas: SavedItem[] = [
   templateUrl: "./profile-view.component.html",
   styleUrls: ["./profile-view.component.sass"],
 })
-export class ProfileViewComponent implements OnInit {
+export class ProfileViewComponent {
   savedMangas!: SavedItem[];
   savedAnimes!: SavedItem[];
+  itemCategory = ItemCategory;
 
   constructor() {
     this.savedAnimes = dummyAnimes;
     this.savedMangas = dummyMangas;
   }
-
-  ngOnInit(): void {}
 }

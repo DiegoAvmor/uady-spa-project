@@ -6,13 +6,13 @@
 
 <div class="saved-items">
   <app-profile-saved-items
-    itemCategory="anime"
+    [itemCategory]="itemCategory.ANIME"
     [dataSource]="savedAnimes"
     headerTitle="Saved animes"
   ></app-profile-saved-items>
 
   <app-profile-saved-items
-    itemCategory="manga"
+    [itemCategory]="itemCategory.MANGA"
     [dataSource]="savedMangas"
     headerTitle="Saved mangas"
   ></app-profile-saved-items>

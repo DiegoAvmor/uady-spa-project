@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { ItemCategory } from "src/app/models/ItemCategory";
+import { ItemCategory } from "src/app/models/utils/ItemCategory";
 import { SavedItem } from "src/app/models/SavedItem";
 
 const itemDisplayCategories: Map<ItemCategory, string> = new Map();
-itemDisplayCategories.set("anime", "Anime");
-itemDisplayCategories.set("manga", "Manga");
+itemDisplayCategories.set(ItemCategory.ANIME, "Anime");
+itemDisplayCategories.set(ItemCategory.MANGA, "Manga");
 
 @Component({
   selector: "app-profile-saved-items",
