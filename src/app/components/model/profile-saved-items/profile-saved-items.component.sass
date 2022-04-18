@@ -12,6 +12,10 @@ $border: solid 1px #e0e0e0
     align-items: center
     padding: 1em
     border-bottom: $border
+    @media screen and (max-width: $bp-sm)
+      flex-direction: column
+      align-items: flex-start
+      gap: 1em
 
     &__title
       margin: 0em
@@ -31,5 +35,9 @@ $border: solid 1px #e0e0e0
       width: 12%
     & .mat-column-status
       width: 12%
+      @media screen and (max-width: $bp-sm)
+        display: none
     & .mat-column-year
       width: 12%
+      @media screen and (max-width: $bp-sm)
+        display: none
