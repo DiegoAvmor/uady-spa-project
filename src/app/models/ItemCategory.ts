@@ -1,1 +1,1 @@
-export type ItemCategory = "Anime" | "Manga";
+export type ItemCategory = "anime" | "manga";

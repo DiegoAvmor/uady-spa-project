@@ -15,7 +15,7 @@
   >
     <!-- Item category column -->
     <ng-container matColumnDef="itemCategory">
-      <th mat-header-cell *matHeaderCellDef>{{ itemCategory }}</th>
+      <th mat-header-cell *matHeaderCellDef>{{ itemDisplayCategory }}</th>
       <td mat-cell *matCellDef="let element">
         <a routerLink="{{ element.url }}">{{ element.title }}</a>
       </td>
