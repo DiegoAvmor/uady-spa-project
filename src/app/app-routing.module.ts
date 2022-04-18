@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: "search", component: SearchViewComponent },
   { path: "users/:username", component: ProfileViewComponent },
   { path: "register", component: SignUpViewComponent },
-  { path: "login", component: SignInViewComponent },
+  { path: "signin", component: SignInViewComponent },
 ];
 
 @NgModule({
