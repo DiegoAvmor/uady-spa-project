@@ -6,6 +6,6 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./navbar-button.component.sass"],
 })
 export class NavbarItemButtonComponent {
-  @Input() callback = () => {};
-  @Input() label = "";
+  @Input() callback!: () => void;
+  @Input() label!: string;
 }

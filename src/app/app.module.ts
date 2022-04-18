@@ -24,6 +24,9 @@ import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-link.component";
 import { MatInputModule } from "@angular/material/input";
 import { NavbarItemButtonComponent } from "./components/ui/navbar-item-button/navbar-button.component";
+import { ProfileViewComponent } from "./views/profile-view/profile-view.component";
+import { ProfileSavedItemsComponent } from "./components/model/profile-saved-items/profile-saved-items.component";
+import { MatTableModule } from "@angular/material/table";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 
 @NgModule({
@@ -38,6 +41,8 @@ import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component
     SearchViewComponent,
     NavbarItemLinkComponent,
     NavbarItemButtonComponent,
+    ProfileViewComponent,
+    ProfileSavedItemsComponent,
     SignUpViewComponent,
   ],
   imports: [
@@ -56,6 +61,7 @@ import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
+    MatTableModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
