@@ -8,6 +8,7 @@ import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { ProfileViewComponent } from "./views/profile-view/profile-view.component";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
+import { HomeViewComponent } from "./views/home-view/home-view.component";
 
 const routes: Routes = [
   { path: "resource/:type/:id", component: ResourceDetailsView },
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: "users/:username", component: ProfileViewComponent },
   { path: "register", component: SignUpViewComponent },
   { path: "signin", component: SignInViewComponent },
+  { path:'',redirectTo:'home', pathMatch: 'full' },
+  { path: "home", component: HomeViewComponent },
 ];
 
 @NgModule({
