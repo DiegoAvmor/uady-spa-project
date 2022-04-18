@@ -10,8 +10,6 @@ export class SignUpViewComponent implements OnInit {
 
   signUpForm!:FormGroup;
 
-  constructor() { }
-
   ngOnInit(): void {
     this.signUpForm = new FormBuilder().group(
       {
