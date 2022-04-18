@@ -38,10 +38,10 @@
         [callback]="loginButtonCallback"
       ></app-navbar-button>
 
-      <app-navbar-button
+      <app-navbar-link
         label="Sign up"
-        [callback]="signUpButtonCallback"
-      ></app-navbar-button>
+        redirectUrl="/register"
+      ></app-navbar-link>
     </div>
   </div>
 </mat-toolbar>
