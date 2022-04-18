@@ -23,21 +23,21 @@ export class ApiService {
     );
   }
 
-  getTopAnime():Observable<Anime[]>{
-    return this.http.get<any>(this.apiUrl + `/top/anime`).pipe(
-      tap(_ => console.log(`Got data from top anime`)),
-    );
+  getTopAnime(): Observable<Anime[]> {
+    return this.http
+      .get<any>(this.apiUrl + `/top/anime`)
+      .pipe(tap((_) => console.log(`Got data from top anime`)));
   }
 
-  getTopManga():Observable<Manga[]>{
-    return this.http.get<any>(this.apiUrl + `/top/manga`).pipe(
-      tap(_ => console.log(`Got data from top manga`)),
-    );
+  getTopManga(): Observable<Manga[]> {
+    return this.http
+      .get<any>(this.apiUrl + `/top/manga`)
+      .pipe(tap((_) => console.log(`Got data from top manga`)));
   }
 
-  getThisSeason():Observable<Anime[]>{
-    return this.http.get<any>(this.apiUrl + `/seasons/now`).pipe(
-      tap(_ => console.log(`Got data from this anime season`)),
-    );
+  getThisSeason(): Observable<Anime[]> {
+    return this.http
+      .get<any>(this.apiUrl + `/seasons/now`)
+      .pipe(tap((_) => console.log(`Got data from this anime season`)));
   }
 }

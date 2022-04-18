@@ -1,23 +1,22 @@
-import { Component, OnInit, AfterContentInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { Card } from '../../models/card';
-import { Anime } from '../../models/anime';
-import { Manga } from '../../models/manga';
-import * as $ from 'jquery'
+import { Component, OnInit, AfterContentInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ApiService } from "../../services/api.service";
+import { Card } from "../../models/card";
+import { Anime } from "../../models/anime";
+import { Manga } from "../../models/manga";
+import * as $ from "jquery";
 @Component({
-  selector: 'app-home-view',
-  templateUrl: './home-view.component.html',
-  styleUrls: ['./home-view.component.css']
+  selector: "app-home-view",
+  templateUrl: "./home-view.component.html",
+  styleUrls: ["./home-view.component.css"],
 })
 export class HomeViewComponent implements OnInit {
+  topAnime!: Anime[];
+  topManga!: Manga[];
+  thisSeason!: Anime[];
+  isLoading = true;
 
-  topAnime !: Anime[];
-  topManga !: Manga[];
-  thisSeason !: Anime[];
-  isLoading : boolean = true;
-
-  constructor(private apiService:ApiService, private route:ActivatedRoute) { }
+  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getTopAnime();
@@ -28,75 +27,73 @@ export class HomeViewComponent implements OnInit {
     this.thisSeasonScroll();
   }
 
-  getTopAnime(){
+  getTopAnime() {
     this.isLoading = true;
-    this.apiService.getTopAnime().subscribe(
-      {
-        next: (response:any) => {
-          this.topAnime = response.data;
-          console.log(this.topAnime);
-        },
-        error: (e) => {
-          this.isLoading = false;
-          //TODO: Redirect to not found
-          console.error(e);
-        },
-        complete: () => {
-          this.isLoading = false;
-        },
-      }
-    );
+    this.apiService.getTopAnime().subscribe({
+      next: (response: any) => {
+        this.topAnime = response.data;
+        console.log(this.topAnime);
+      },
+      error: (e) => {
+        this.isLoading = false;
+        //TODO: Redirect to not found
+        console.error(e);
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
   }
 
-  getTopManga(){
+  getTopManga() {
     this.isLoading = true;
-    this.apiService.getTopManga ().subscribe(
-      {
-        next: (response:any) => {
-          this.topManga = response.data;
-          console.log(this.topManga);
-        },
-        error: (e) => {
-          this.isLoading = false;
-          //TODO: Redirect to not found
-          console.error(e);
-        },
-        complete: () => {
-          this.isLoading = false;
-        },
-      }
-    );
+    this.apiService.getTopManga().subscribe({
+      next: (response: any) => {
+        this.topManga = response.data;
+        console.log(this.topManga);
+      },
+      error: (e) => {
+        this.isLoading = false;
+        //TODO: Redirect to not found
+        console.error(e);
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
   }
 
-  getThisSeason(){
+  getThisSeason() {
     this.isLoading = true;
-    this.apiService.getThisSeason().subscribe(
-      {
-        next: (response:any) => {
-          this.thisSeason = response.data;
-          console.log(this.thisSeason);
-        },
-        error: (e) => {
-          this.isLoading = false;
-          //TODO: Redirect to not found
-          console.error(e);
-        },
-        complete: () => {
-          this.isLoading = false;
-        },
-      }
-    );
+    this.apiService.getThisSeason().subscribe({
+      next: (response: any) => {
+        this.thisSeason = response.data;
+        console.log(this.thisSeason);
+      },
+      error: (e) => {
+        this.isLoading = false;
+        //TODO: Redirect to not found
+        console.error(e);
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
   }
 
-  topAnimeScroll(){
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+  topAnimeScroll() {
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextAnimeButton").on("click", function () {
-      if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
-        scrollPosition += cardWidth;  //update scroll position
-        $("#carouselInnerTopAnime").animate({ scrollLeft: scrollPosition },600); //scroll left
+      if (scrollPosition < carouselWidth - cardWidth * 4) {
+        //check if you can go any further
+        scrollPosition += cardWidth; //update scroll position
+        $("#carouselInnerTopAnime").animate(
+          { scrollLeft: scrollPosition },
+          600
+        ); //scroll left
       }
     });
 
@@ -111,15 +108,19 @@ export class HomeViewComponent implements OnInit {
     });
   }
 
-  topMangaScroll(){
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+  topMangaScroll() {
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextMangaButton").on("click", function () {
-      if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
-        scrollPosition += cardWidth;  //update scroll position
-        $("#carouselInnerTopManga").animate({ scrollLeft: scrollPosition },600); //scroll left
+      if (scrollPosition < carouselWidth - cardWidth * 4) {
+        //check if you can go any further
+        scrollPosition += cardWidth; //update scroll position
+        $("#carouselInnerTopManga").animate(
+          { scrollLeft: scrollPosition },
+          600
+        ); //scroll left
       }
     });
 
@@ -134,15 +135,19 @@ export class HomeViewComponent implements OnInit {
     });
   }
 
-  thisSeasonScroll(){
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+  thisSeasonScroll() {
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextThisSeasonButton").on("click", function () {
-      if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
-        scrollPosition += cardWidth;  //update scroll position
-        $("#carouselInnerThisSeason").animate({ scrollLeft: scrollPosition },600); //scroll left
+      if (scrollPosition < carouselWidth - cardWidth * 4) {
+        //check if you can go any further
+        scrollPosition += cardWidth; //update scroll position
+        $("#carouselInnerThisSeason").animate(
+          { scrollLeft: scrollPosition },
+          600
+        ); //scroll left
       }
     });
 
@@ -157,8 +162,8 @@ export class HomeViewComponent implements OnInit {
     });
   }
 
-  goToElement(type:String , item : Card){
-    console.log(type)
-    console.log(item.mal_id)
+  goToElement(type: string, item: Card) {
+    console.log(type);
+    console.log(item.mal_id);
   }
 }
