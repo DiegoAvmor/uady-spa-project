@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 
 @Component({
-  selector: 'app-sign-in-view',
-  templateUrl: './sign-in-view.component.html',
-  styleUrls: ['./sign-in-view.component.sass']
+  selector: "app-sign-in-view",
+  templateUrl: "./sign-in-view.component.html",
+  styleUrls: ["./sign-in-view.component.sass"],
 })
 export class SignInViewComponent implements OnInit {
-
   signInForm!: FormGroup;
 
   ngOnInit(): void {
@@ -17,8 +21,7 @@ export class SignInViewComponent implements OnInit {
     });
   }
 
-  get form(){
+  get form() {
     return this.signInForm.controls;
   }
-
 }

@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ProfileSavedItemsComponent } from './profile-saved-items.component';
+import { ProfileSavedItemsComponent } from "./profile-saved-items.component";
 
-describe('ProfileSavedItemsComponent', () => {
+describe("ProfileSavedItemsComponent", () => {
   let component: ProfileSavedItemsComponent;
   let fixture: ComponentFixture<ProfileSavedItemsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileSavedItemsComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfileSavedItemsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ProfileSavedItemsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

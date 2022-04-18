@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SignInViewComponent } from './sign-in-view.component';
+import { SignInViewComponent } from "./sign-in-view.component";
 
-describe('SignInViewComponent', () => {
+describe("SignInViewComponent", () => {
   let component: SignInViewComponent;
   let fixture: ComponentFixture<SignInViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignInViewComponent ]
-    })
-    .compileComponents();
+      declarations: [SignInViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SignInViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
