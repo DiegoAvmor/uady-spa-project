@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiService } from "../../services/api.service";
-import { ItemDetails } from "../../models/resource-details";
+import { ItemDetails } from "../../models/item-details";
 
 @Component({
   selector: "app-resource-details",
