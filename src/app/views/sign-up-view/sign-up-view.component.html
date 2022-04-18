@@ -1,44 +1,97 @@
 <div class="form-card">
-    <mat-card-title>Sign Up</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="signUpForm">
-            <mat-form-field appearance="fill" color="primary" class="form-group">
-                <mat-label>Username</mat-label>
-                <mat-icon matPrefix>person</mat-icon>
-                <input matInput placeholder="Type your username" formControlName="username" name="username">
-                <mat-error *ngIf="this.form['username'].invalid && this.form['username'].touched">
-                    <span *ngIf="this.form['username'].hasError('required')">This field is required</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="primary">
-                <mat-label>Email</mat-label>
-                <mat-icon matPrefix>email</mat-icon>
-                <input matInput placeholder="Type your email" formControlName="email" name="email">
-                <mat-error *ngIf="this.form['email'].invalid && this.form['email'].touched">
-                    <span *ngIf="this.form['email'].hasError('required')">This field is required</span>
-                    <span *ngIf="this.form['email'].hasError('email')">Email is invalid</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="primary">
-                <mat-label>Password</mat-label>
-                <mat-icon matPrefix>password</mat-icon>
-                <input matInput type="password" placeholder="Password" formControlName="password" name="password">
-                <mat-error *ngIf="this.form['password'].invalid && this.form['password'].touched">
-                    <span *ngIf="this.form['password'].hasError('required')">This field is required</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="primary">
-                <mat-label>Repeat Password</mat-label>
-                <mat-icon matPrefix>password</mat-icon>
-                <input (change)="validatePassword($event.target)" matInput type="password" placeholder="Repeat Password" formControlName="repeatPassword" name="repeatPassword">
-                <mat-error *ngIf="this.form['repeatPassword'].invalid && this.form['repeatPassword'].touched">
-                    <span *ngIf="this.form['repeatPassword'].hasError('required')">This field is required</span>
-                    <span *ngIf="this.form['repeatPassword'].hasError('notSame')">Please enter the same password</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-card-actions>
-                <button [disabled]="!this.signUpForm.valid" mat-raised-button type="submit" color="primary">Sign Up <mat-icon>arrow_right_alt</mat-icon></button>
-            </mat-card-actions>
-        </form>
-    </mat-card-content>
+  <mat-card-title>Sign Up</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="signUpForm">
+      <mat-form-field appearance="fill" color="primary" class="form-group">
+        <mat-label>Username</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input
+          matInput
+          placeholder="Type your username"
+          formControlName="username"
+          name="username"
+        />
+        <mat-error
+          *ngIf="this.form['username'].invalid && this.form['username'].touched"
+        >
+          <span *ngIf="this.form['username'].hasError('required')"
+            >This field is required</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label>Email</mat-label>
+        <mat-icon matPrefix>email</mat-icon>
+        <input
+          matInput
+          placeholder="Type your email"
+          formControlName="email"
+          name="email"
+        />
+        <mat-error
+          *ngIf="this.form['email'].invalid && this.form['email'].touched"
+        >
+          <span *ngIf="this.form['email'].hasError('required')"
+            >This field is required</span
+          >
+          <span *ngIf="this.form['email'].hasError('email')"
+            >Email is invalid</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label>Password</mat-label>
+        <mat-icon matPrefix>password</mat-icon>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          name="password"
+        />
+        <mat-error
+          *ngIf="this.form['password'].invalid && this.form['password'].touched"
+        >
+          <span *ngIf="this.form['password'].hasError('required')"
+            >This field is required</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label>Repeat Password</mat-label>
+        <mat-icon matPrefix>password</mat-icon>
+        <input
+          (change)="validatePassword($event.target)"
+          matInput
+          type="password"
+          placeholder="Repeat Password"
+          formControlName="repeatPassword"
+          name="repeatPassword"
+        />
+        <mat-error
+          *ngIf="
+            this.form['repeatPassword'].invalid &&
+            this.form['repeatPassword'].touched
+          "
+        >
+          <span *ngIf="this.form['repeatPassword'].hasError('required')"
+            >This field is required</span
+          >
+          <span *ngIf="this.form['repeatPassword'].hasError('notSame')"
+            >Please enter the same password</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-card-actions>
+        <button
+          [disabled]="!this.signUpForm.valid"
+          mat-raised-button
+          type="submit"
+          color="primary"
+        >
+          Sign Up <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
 </div>

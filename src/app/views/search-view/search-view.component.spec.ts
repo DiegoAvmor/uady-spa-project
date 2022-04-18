@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchViewComponent } from './search-view.component';
+import { SearchViewComponent } from "./search-view.component";
 
-describe('SearchViewComponent', () => {
+describe("SearchViewComponent", () => {
   let component: SearchViewComponent;
   let fixture: ComponentFixture<SearchViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchViewComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SearchViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
