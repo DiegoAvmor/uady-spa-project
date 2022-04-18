@@ -7,6 +7,7 @@ import { ContactViewComponent } from "./views/contact-view/contact-view.componen
 import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { ProfileViewComponent } from "./views/profile-view/profile-view.component";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
+import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
 
 const routes: Routes = [
   { path: "resource/:type/:id", component: ResourceDetailsView },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "search", component: SearchViewComponent },
   { path: "users/:username", component: ProfileViewComponent },
   { path: "register", component: SignUpViewComponent },
+  { path: "signin", component: SignInViewComponent },
 ];
 
 @NgModule({
