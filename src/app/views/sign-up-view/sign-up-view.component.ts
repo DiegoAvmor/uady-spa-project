@@ -22,7 +22,7 @@ export class SignUpViewComponent implements OnInit {
   }
 
   validatePassword(e:any){
-    let confirmPassword = e.value;
+    const confirmPassword = e.value;
     if(this.form["password"].value != confirmPassword){
       this.form["repeatPassword"].setErrors({notSame:true});
     }
