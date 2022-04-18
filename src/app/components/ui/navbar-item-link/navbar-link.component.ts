@@ -6,7 +6,7 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./navbar-link.component.sass"],
 })
 export class NavbarItemLinkComponent {
-  @Input() redirectUrl = "";
-  @Input() activeUrl = "";
-  @Input() label = "";
+  @Input() redirectUrl!: string;
+  @Input() activeUrl!: string;
+  @Input() label!: string;
 }
