@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ProfileViewComponent } from './profile-view.component';
+import { ProfileViewComponent } from "./profile-view.component";
 
-describe('ProfileViewComponent', () => {
+describe("ProfileViewComponent", () => {
   let component: ProfileViewComponent;
   let fixture: ComponentFixture<ProfileViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileViewComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfileViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ProfileViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
