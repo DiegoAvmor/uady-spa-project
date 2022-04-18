@@ -8,13 +8,15 @@ import * as $ from "jquery";
 @Component({
   selector: "app-home-view",
   templateUrl: "./home-view.component.html",
-  styleUrls: ["./home-view.component.css"],
+  styleUrls: ["./home-view.component.css", "./home-view.component.sass"],
 })
 export class HomeViewComponent implements OnInit {
   topAnime!: Anime[];
   topManga!: Manga[];
   thisSeason!: Anime[];
-  isLoading = true;
+  isTopAnimeLoading = true;
+  isTopMangaLoading = true;
+  isSeasonAnimeLoading = true;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
@@ -28,55 +30,55 @@ export class HomeViewComponent implements OnInit {
   }
 
   getTopAnime() {
-    this.isLoading = true;
+    this.isTopAnimeLoading = true;
     this.apiService.getTopAnime().subscribe({
       next: (response: any) => {
         this.topAnime = response.data;
         console.log(this.topAnime);
       },
       error: (e) => {
-        this.isLoading = false;
+        this.isTopAnimeLoading = false;
         //TODO: Redirect to not found
         console.error(e);
       },
       complete: () => {
-        this.isLoading = false;
+        this.isTopAnimeLoading = false;
       },
     });
   }
 
   getTopManga() {
-    this.isLoading = true;
+    this.isTopMangaLoading = true;
     this.apiService.getTopManga().subscribe({
       next: (response: any) => {
         this.topManga = response.data;
         console.log(this.topManga);
       },
       error: (e) => {
-        this.isLoading = false;
+        this.isTopMangaLoading = false;
         //TODO: Redirect to not found
         console.error(e);
       },
       complete: () => {
-        this.isLoading = false;
+        this.isTopMangaLoading = false;
       },
     });
   }
 
   getThisSeason() {
-    this.isLoading = true;
+    this.isSeasonAnimeLoading = true;
     this.apiService.getThisSeason().subscribe({
       next: (response: any) => {
         this.thisSeason = response.data;
         console.log(this.thisSeason);
       },
       error: (e) => {
-        this.isLoading = false;
+        this.isSeasonAnimeLoading = false;
         //TODO: Redirect to not found
         console.error(e);
       },
       complete: () => {
-        this.isLoading = false;
+        this.isSeasonAnimeLoading = false;
       },
     });
   }

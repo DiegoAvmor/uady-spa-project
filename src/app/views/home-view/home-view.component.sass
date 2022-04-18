@@ -1,0 +1,16 @@
+.card-item
+  cursor: pointer
+  &:hover
+    z-index: 1
+    animation: scale-card ease-in 0.2s forwards
+  .card-title
+    text-align: center
+
+@keyframes scale-card
+  0%
+    transform: scale(1.0)
+  100%
+    transform: scale(1.1)
+
+.section-title
+  margin: 2em
