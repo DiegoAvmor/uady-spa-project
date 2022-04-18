@@ -5,6 +5,7 @@ import { AnimesViewComponent } from "./views/animes-view/animes-view.component";
 import { MangasViewComponent } from "./views/mangas-view/mangas-view.component";
 import { ContactViewComponent } from "./views/contact-view/contact-view.component";
 import { SearchViewComponent } from "./views/search-view/search-view.component";
+import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 
 const routes: Routes = [
   { path: "resource/:type/:id", component: ResourceDetailsView },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "mangas", component: MangasViewComponent },
   { path: "contact", component: ContactViewComponent },
   { path: "search", component: SearchViewComponent },
+  { path: "register", component: SignUpViewComponent },
 ];
 
 @NgModule({
