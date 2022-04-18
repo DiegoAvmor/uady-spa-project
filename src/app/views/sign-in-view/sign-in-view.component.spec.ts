@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchViewComponent } from "./search-view.component";
+import { SignInViewComponent } from "./sign-in-view.component";
 
-describe("SearchViewComponent", () => {
-  let component: SearchViewComponent;
-  let fixture: ComponentFixture<SearchViewComponent>;
+describe("SignInViewComponent", () => {
+  let component: SignInViewComponent;
+  let fixture: ComponentFixture<SignInViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchViewComponent],
+      declarations: [SignInViewComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchViewComponent);
+    fixture = TestBed.createComponent(SignInViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

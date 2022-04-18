@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ContactViewComponent } from './contact-view.component';
+import { ContactViewComponent } from "./contact-view.component";
 
-describe('ContactViewComponent', () => {
+describe("ContactViewComponent", () => {
   let component: ContactViewComponent;
   let fixture: ComponentFixture<ContactViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactViewComponent ]
-    })
-    .compileComponents();
+      declarations: [ContactViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ContactViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

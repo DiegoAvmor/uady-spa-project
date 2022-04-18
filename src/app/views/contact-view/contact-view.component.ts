@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-contact-view',
-  templateUrl: './contact-view.component.html',
-  styleUrls: ['./contact-view.component.sass']
+  selector: "app-contact-view",
+  templateUrl: "./contact-view.component.html",
+  styleUrls: ["./contact-view.component.sass"],
 })
 export class ContactViewComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

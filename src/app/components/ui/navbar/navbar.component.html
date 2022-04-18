@@ -33,15 +33,16 @@
     </div>
 
     <div id="navbar__actions__auth">
-      <app-navbar-button
-        label="Login"
-        [callback]="loginButtonCallback"
-      ></app-navbar-button>
+      <app-navbar-link label="Sign In"
+        [activeUrl]="activeUrl"
+        redirectUrl="/signin"
+      ></app-navbar-link>
 
-      <app-navbar-button
-        label="Sign up"
-        [callback]="signUpButtonCallback"
-      ></app-navbar-button>
+      <app-navbar-link
+        label="Sign Up"
+        [activeUrl]="activeUrl"
+        redirectUrl="/register"
+      ></app-navbar-link>
     </div>
   </div>
 </mat-toolbar>
