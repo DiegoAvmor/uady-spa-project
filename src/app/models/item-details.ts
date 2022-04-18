@@ -1,3 +1,5 @@
+import { ItemGenre } from "./item-genre";
+
 export interface ItemDetails {
   mal_id: number;
   url: string;
@@ -17,11 +19,4 @@ export interface ItemDetails {
   synopsis: string;
   background: string;
   genres: ItemGenre[];
-}
-
-interface ItemGenre {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
 }
