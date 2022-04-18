@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterContentInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { ApiService } from "../../services/api.service";
 import { Card } from "../../models/card";
 import { Anime } from "../../models/anime";
@@ -16,7 +16,7 @@ export class HomeViewComponent implements OnInit {
   thisSeason!: Anime[];
   isLoading = true;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.getTopAnime();
@@ -163,7 +163,6 @@ export class HomeViewComponent implements OnInit {
   }
 
   goToElement(type: string, item: Card) {
-    console.log(type);
-    console.log(item.mal_id);
+    this.router.navigateByUrl(`/resource/${type}/${item.mal_id}`);
   }
 }
