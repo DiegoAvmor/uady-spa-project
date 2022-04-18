@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiService } from "../../services/api.service";
-import { ResourceDetails } from "../../models/resource-details";
+import { ItemDetails } from "../../models/resource-details";
 
 @Component({
   selector: "app-resource-details",
@@ -9,17 +9,17 @@ import { ResourceDetails } from "../../models/resource-details";
   styleUrls: ["./resource-details-view.component.sass"],
 })
 export class ResourceDetailsView implements OnInit {
-  details!: ResourceDetails;
-  isLoading: boolean = true;
-  isRated: boolean = true;
-  isSaved: boolean = true;
+  details!: ItemDetails;
+  isLoading = true;
+  isRated = true;
+  isSaved = true;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     //Get resource name and id from url
-    let resourceName = <string>this.route.snapshot.paramMap.get("type");
-    let resourceId = <string>this.route.snapshot.paramMap.get("id");
+    const resourceName = <string>this.route.snapshot.paramMap.get("type");
+    const resourceId = <string>this.route.snapshot.paramMap.get("id");
     //Get current resource data from the API
     this.getResourceDetailsByNameAndId(resourceName, resourceId);
     //TODO: Implement method to obtain the personal rating of the resource

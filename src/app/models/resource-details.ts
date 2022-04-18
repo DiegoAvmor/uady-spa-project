@@ -1,4 +1,4 @@
-export interface ResourceDetails {
+export interface ItemDetails {
   mal_id: number;
   url: string;
   images: any;
@@ -16,10 +16,10 @@ export interface ResourceDetails {
   favorites: number;
   synopsis: string;
   background: string;
-  genres: Genre[];
+  genres: ItemGenre[];
 }
 
-interface Genre {
+interface ItemGenre {
   mal_id: number;
   type: string;
   name: string;

@@ -2,7 +2,7 @@ import { environment } from "../../environments/environment";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
-import { ResourceDetails } from "../models/resource-details";
+import { ItemDetails } from "../models/resource-details";
 @Injectable({
   providedIn: "root",
 })
@@ -14,7 +14,7 @@ export class ApiService {
   getResourceDetailsByTypeAndId(
     type: string,
     id: string
-  ): Observable<ResourceDetails> {
+  ): Observable<ItemDetails> {
     return this.http.get<any>(this.apiUrl + `/${type}/${id}`).pipe(
       //map((response:Data) => new ResourceDetails(response.data)),
       tap((_) => console.log(`Got data from resource ${type} with id ${id}`))
