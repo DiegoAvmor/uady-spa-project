@@ -1,0 +1,4 @@
+# Normalize line endings of any new file.
+* text=auto
+# Line ending style to be used in the working directory.
+eol=lf
