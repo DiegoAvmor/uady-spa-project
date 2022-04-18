@@ -28,6 +28,7 @@ import { ProfileViewComponent } from "./views/profile-view/profile-view.componen
 import { ProfileSavedItemsComponent } from "./components/model/profile-saved-items/profile-saved-items.component";
 import { MatTableModule } from "@angular/material/table";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
+import { SignInViewComponent } from './views/sign-in-view/sign-in-view.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component
     ProfileViewComponent,
     ProfileSavedItemsComponent,
     SignUpViewComponent,
+    SignInViewComponent,
   ],
   imports: [
     BrowserModule,
