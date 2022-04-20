@@ -9,14 +9,14 @@ export interface Images {
   webp: Webp;
 }
 
-class Jpg {
-  image_url!: string;
-  large_image_url!: string;
-  small_image_url!: string;
+interface Jpg {
+  image_url: string;
+  large_image_url: string;
+  small_image_url: string;
 }
 
-class Webp {
-  image_url!: string;
-  large_image_url!: string;
-  small_image_url!: string;
+interface Webp {
+  image_url: string;
+  large_image_url: string;
+  small_image_url: string;
 }

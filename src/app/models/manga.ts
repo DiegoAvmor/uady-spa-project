@@ -1,6 +1,6 @@
-import { Card, Images } from "./card";
+import { Images } from "./card";
 
-export class Manga implements Card {
+export interface Manga {
   mal_id: number;
   images: Images;
   title: string;

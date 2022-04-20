@@ -1,6 +1,6 @@
-import { Card, Images } from "./card";
+import { Images } from "./card";
 
-export class Anime implements Card {
+export interface Anime {
   mal_id: number;
   images: Images;
   title: string;
