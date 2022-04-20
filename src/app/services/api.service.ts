@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import { Anime } from "../models/anime";
 import { Manga } from "../models/manga";
-import { ResourceDetails } from "../models/resource-details";
+import { ItemDetails } from "../models/item-details";
 @Injectable({
   providedIn: "root",
 })
@@ -16,7 +16,7 @@ export class ApiService {
   getResourceDetailsByTypeAndId(
     type: string,
     id: string
-  ): Observable<ResourceDetails> {
+  ): Observable<ItemDetails> {
     return this.http.get<any>(this.apiUrl + `/${type}/${id}`).pipe(
       //map((response:Data) => new ResourceDetails(response.data)),
       tap((_) => console.log(`Got data from resource ${type} with id ${id}`))
