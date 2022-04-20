@@ -47,7 +47,7 @@ import { HomeViewComponent } from "./views/home-view/home-view.component";
     ProfileSavedItemsComponent,
     SignUpViewComponent,
     SignInViewComponent,
-    HomeViewComponent
+    HomeViewComponent,
   ],
   imports: [
     BrowserModule,
