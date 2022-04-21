@@ -86,21 +86,21 @@ export class HomeViewComponent implements OnInit {
     const cardWidth = 600;
     let scrollPosition = 0;
 
-    $("#nextAnimeButton").on("click", function () {
+    $("#next-anime-button").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
         //check if you can go any further
         scrollPosition += cardWidth; //update scroll position
-        $("#carouselInnerTopAnime").animate(
+        $("#carousel-inner-top-anime").animate(
           { scrollLeft: scrollPosition },
           600
         ); //scroll left
       }
     });
 
-    $("#prevAnimeButton").on("click", function () {
+    $("#prev-anime-button").on("click", function () {
       if (scrollPosition > 0) {
         scrollPosition -= cardWidth;
-        $("#carouselInnerTopAnime").animate(
+        $("#carousel-inner-top-anime").animate(
           { scrollLeft: scrollPosition },
           600
         );
@@ -113,21 +113,21 @@ export class HomeViewComponent implements OnInit {
     const cardWidth = 600;
     let scrollPosition = 0;
 
-    $("#nextMangaButton").on("click", function () {
+    $("#next-manga-button").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
         //check if you can go any further
         scrollPosition += cardWidth; //update scroll position
-        $("#carouselInnerTopManga").animate(
+        $("#carousel-inner-top-manga").animate(
           { scrollLeft: scrollPosition },
           600
         ); //scroll left
       }
     });
 
-    $("#prevMangaButton").on("click", function () {
+    $("#prev-manga-button").on("click", function () {
       if (scrollPosition > 0) {
         scrollPosition -= cardWidth;
-        $("#carouselInnerTopManga").animate(
+        $("#carousel-inner-top-manga").animate(
           { scrollLeft: scrollPosition },
           600
         );
@@ -140,21 +140,21 @@ export class HomeViewComponent implements OnInit {
     const cardWidth = 600;
     let scrollPosition = 0;
 
-    $("#nextThisSeasonButton").on("click", function () {
+    $("#next-this-season-button").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
         //check if you can go any further
         scrollPosition += cardWidth; //update scroll position
-        $("#carouselInnerThisSeason").animate(
+        $("#carousel-inner-this-season").animate(
           { scrollLeft: scrollPosition },
           600
         ); //scroll left
       }
     });
 
-    $("#prevThisSeasonButton").on("click", function () {
+    $("#prev-this-season-button").on("click", function () {
       if (scrollPosition > 0) {
         scrollPosition -= cardWidth;
-        $("#carouselInnerThisSeason").animate(
+        $("#carousel-inner-this-season").animate(
           { scrollLeft: scrollPosition },
           600
         );
