@@ -14,7 +14,7 @@ export class HomeViewComponent implements OnInit {
   topAnime!: Anime[];
   topManga!: Manga[];
   thisSeason!: Anime[];
-  isLoading: boolean = true;
+  isLoading = true;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -82,9 +82,9 @@ export class HomeViewComponent implements OnInit {
   }
 
   topAnimeScroll() {
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextAnimeButton").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
@@ -109,9 +109,9 @@ export class HomeViewComponent implements OnInit {
   }
 
   topMangaScroll() {
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextMangaButton").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
@@ -136,9 +136,9 @@ export class HomeViewComponent implements OnInit {
   }
 
   thisSeasonScroll() {
-    var carouselWidth = 8000;
-    var cardWidth = 600;
-    var scrollPosition = 0;
+    const carouselWidth = 8000;
+    const cardWidth = 600;
+    let scrollPosition = 0;
 
     $("#nextThisSeasonButton").on("click", function () {
       if (scrollPosition < carouselWidth - cardWidth * 4) {
@@ -162,7 +162,7 @@ export class HomeViewComponent implements OnInit {
     });
   }
 
-  goToElement(type: String, item: Card) {
+  goToElement(type: string, item: Card) {
     console.log(type);
     console.log(item.mal_id);
   }
