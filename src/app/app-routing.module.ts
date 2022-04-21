@@ -1,4 +1,4 @@
-import { HomeViewComponent } from './views/home-view/home-view.component';
+import { HomeViewComponent } from "./views/home-view/home-view.component";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ResourceDetailsView } from "./views/resource-details-view/resource-details-view.component";
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "users/:username", component: ProfileViewComponent },
   { path: "register", component: SignUpViewComponent },
   { path: "signin", component: SignInViewComponent },
-  { path: "", redirectTo:"home", pathMatch:"full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeViewComponent },
 ];
 

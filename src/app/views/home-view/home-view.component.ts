@@ -165,6 +165,6 @@ export class HomeViewComponent implements OnInit {
   }
 
   goToElement(type: string, item: Card) {
-    this.route.navigateByUrl(`/resource/${type}/${item.mal_id}`)
+    this.route.navigateByUrl(`/resource/${type}/${item.mal_id}`);
   }
 }

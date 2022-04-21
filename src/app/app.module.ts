@@ -13,7 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ComasListPipe } from "./pipes/comas-list.pipe";
 import { NavbarComponent } from "./components/ui/navbar/navbar.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -67,7 +67,7 @@ import { HomeViewComponent } from "./views/home-view/home-view.component";
     MatButtonModule,
     MatInputModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
