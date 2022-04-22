@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from "../../services/api.service";
-import { Card } from "../../models/card";
+import { HomeViewCard } from "../../models/home-view-card";
 import { Anime } from "../../models/anime";
 import { Manga } from "../../models/manga";
 import * as $ from "jquery";
@@ -164,7 +164,7 @@ export class HomeViewComponent implements OnInit {
     });
   }
 
-  goToElement(type: string, item: Card) {
+  goToElement(type: string, item: HomeViewCard) {
     this.route.navigateByUrl(`/resource/${type}/${item.mal_id}`);
   }
 }
