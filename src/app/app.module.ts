@@ -13,6 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ComasListPipe } from "./pipes/comas-list.pipe";
 import { NavbarComponent } from "./components/ui/navbar/navbar.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -29,6 +30,7 @@ import { ProfileSavedItemsComponent } from "./components/model/profile-saved-ite
 import { MatTableModule } from "@angular/material/table";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
+import { HomeViewComponent } from "./views/home-view/home-view.component";
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component
     ProfileSavedItemsComponent,
     SignUpViewComponent,
     SignInViewComponent,
+    HomeViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component
     MatButtonModule,
     MatInputModule,
     MatTableModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
