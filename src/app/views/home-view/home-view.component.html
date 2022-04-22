@@ -2,9 +2,7 @@
   <h3>This Season</h3>
   <mat-divider></mat-divider>
 </div>
-<mat-spinner *ngIf="isThisSeasonLoading" class="mx-auto m-5"></mat-spinner>
 <div
-  *ngIf="!isThisSeasonLoading"
   id="carousel-this-season"
   class="carousel"
   data-bs-ride="carousel"
@@ -51,9 +49,7 @@
   <h3>Top Anime</h3>
   <mat-divider></mat-divider>
 </div>
-<mat-spinner *ngIf="isTopAnimeLoading" class="mx-auto m-5"></mat-spinner>
 <div
-  *ngIf="!isTopAnimeLoading"
   id="carousel-top-anime"
   class="carousel"
   data-bs-ride="carousel"
@@ -100,9 +96,7 @@
   <h3>Top Manga</h3>
   <mat-divider></mat-divider>
 </div>
-<mat-spinner *ngIf="isTopMangaLoading" class="mx-auto m-5"></mat-spinner>
 <div
-  *ngIf="!isTopMangaLoading"
   id="carousel-top-manga"
   class="carousel"
   data-bs-ride="carousel"
