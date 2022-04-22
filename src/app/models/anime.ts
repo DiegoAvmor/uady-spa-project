@@ -1,4 +1,4 @@
-import { Images } from "./card";
+import { Images } from "./images";
 
 export interface Anime {
   mal_id: number;
