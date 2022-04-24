@@ -32,10 +32,13 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/sass/styles.sass"
             ],
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/jquery/dist/jquery.min.js"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/sass"]
-            },
-            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
+            }
           },
           "configurations": {
             "production": {

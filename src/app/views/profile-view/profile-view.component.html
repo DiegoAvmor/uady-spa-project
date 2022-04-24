@@ -1,0 +1,19 @@
+<h1>
+  <span>{{</span>
+  <span>username</span>
+  <span>}}</span>
+</h1>
+
+<div class="saved-items">
+  <app-profile-saved-items
+    itemCategory="anime"
+    [dataSource]="savedAnimes"
+    headerTitle="Saved animes"
+  ></app-profile-saved-items>
+
+  <app-profile-saved-items
+    itemCategory="manga"
+    [dataSource]="savedMangas"
+    headerTitle="Saved mangas"
+  ></app-profile-saved-items>
+</div>
