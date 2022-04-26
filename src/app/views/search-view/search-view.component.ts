@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Category, defaultCategory } from "src/constants";
+import { Categories, defaultCategory } from "src/constants";
 
 @Component({
   selector: "app-search-view",
@@ -8,7 +8,7 @@ import { Category, defaultCategory } from "src/constants";
   styleUrls: ["./search-view.component.sass"],
 })
 export class SearchViewComponent implements OnInit {
-  category: Category = defaultCategory;
+  category: Categories = defaultCategory;
   query = "";
 
   constructor(private route: ActivatedRoute) {}
@@ -16,7 +16,7 @@ export class SearchViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(({ query, category }) => {
       this.query = query;
-      if (Object.values(Category).includes(category)) {
+      if (Object.values(Categories).includes(category)) {
         this.category = category;
       }
     });

@@ -1,7 +1,7 @@
-export enum Category {
+export enum Categories {
   ANIME = "a",
   MANGA = "m",
 }
 
 // Default category of the search view
-export const defaultCategory = Category.ANIME;
+export const defaultCategory = Categories.ANIME;
