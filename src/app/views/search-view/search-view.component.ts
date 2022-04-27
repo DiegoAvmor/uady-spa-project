@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Categories, defaultCategory } from "src/constants";
 
 @Component({
@@ -10,8 +10,9 @@ import { Categories, defaultCategory } from "src/constants";
 export class SearchViewComponent implements OnInit {
   category: Categories = defaultCategory;
   query = "";
+  Categories = Categories;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(({ query, category }) => {
@@ -20,5 +21,11 @@ export class SearchViewComponent implements OnInit {
         this.category = category;
       }
     });
+  }
+
+  changeCategory(category: Categories): void {
+    this.router.navigateByUrl(
+      `/search?query=${this.query}&category=${category}`
+    );
   }
 }

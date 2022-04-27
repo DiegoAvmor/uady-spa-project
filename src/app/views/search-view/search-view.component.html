@@ -1,1 +1,22 @@
-<p>search-view works!</p>
+<div class="search-view-container">
+  <div class="category-selectors">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="changeCategory(Categories.ANIME)"
+    >
+      Anime
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="changeCategory(Categories.MANGA)"
+    >
+      Manga
+    </button>
+  </div>
+
+  <div class="search-results">
+      webos
+  </div>
+</div>
