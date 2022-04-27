@@ -1,0 +1,19 @@
+$container-gap: 3rem
+
+.search-view-container
+    display: grid
+    grid-template-columns: 10rem 1fr
+    column-gap: $container-gap
+    align-items: start
+
+    .category-selectors
+        display: grid
+        grid-template-columns: 1fr
+        row-gap: 1rem
+        align-items: center
+
+    .search-results
+        width: 100%
+        border-left: 1px solid #DEDEDE
+        margin-left: calc($container-gap / -2)
+        padding-left: calc($container-gap / 2)
