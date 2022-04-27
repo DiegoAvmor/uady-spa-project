@@ -1,6 +1,6 @@
 export enum Categories {
-  ANIME = "a",
-  MANGA = "m",
+  ANIME = "anime",
+  MANGA = "manga",
 }
 
 // Default category of the search view

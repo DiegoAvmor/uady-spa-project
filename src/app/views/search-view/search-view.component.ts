@@ -63,4 +63,8 @@ export class SearchViewComponent implements OnInit {
       `/search?query=${this.query}&category=${category}`
     );
   }
+
+  selectItem(id: string | number): void {
+    this.router.navigateByUrl(`/resource/${this.category}/${id}`);
+  }
 }
