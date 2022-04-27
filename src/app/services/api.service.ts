@@ -5,6 +5,10 @@ import { Observable, tap } from "rxjs";
 import { Anime } from "../models/anime";
 import { Manga } from "../models/manga";
 import { ItemDetails } from "../models/item-details";
+import { Paginated } from "../models/paginated";
+
+const max_searched_items = 16;
+
 @Injectable({
   providedIn: "root",
 })
@@ -39,5 +43,21 @@ export class ApiService {
     return this.http
       .get<any>(this.apiUrl + `/seasons/now`)
       .pipe(tap((_) => console.log(`Got data from this anime season`)));
+  }
+
+  searchAnime(query: string, page: number): Observable<Paginated<Anime>> {
+    return this.http
+      .get<Paginated<Anime>>(
+        `${this.apiUrl}/anime?q=${query}&page=${page}&limit=${max_searched_items}`
+      )
+      .pipe(tap((anime) => console.log(`Search anime`, anime)));
+  }
+
+  searchManga(query: string, page: number): Observable<Paginated<Manga>> {
+    return this.http
+      .get<Paginated<Manga>>(
+        `${this.apiUrl}/manga?q=${query}&page=${page}&limit=${max_searched_items}`
+      )
+      .pipe(tap((manga) => console.log(`Search manga`, manga)));
   }
 }
