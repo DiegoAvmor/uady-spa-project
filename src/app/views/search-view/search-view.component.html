@@ -18,5 +18,13 @@
 
   <div class="search-results">
     <h3>Search results</h3>
+    <div class="content">
+      <mat-card class="item" *ngFor="let item of items">
+        <img mat-card-image src="{{ item.images.jpg.image_url }}" alt="Resource cover" />
+        <mat-card-content>
+          <span class="text-center">{{item.title}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
