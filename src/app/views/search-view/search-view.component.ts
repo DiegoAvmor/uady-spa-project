@@ -13,6 +13,11 @@ function sideEffect<Val>(effect: (_: Val) => unknown) {
   };
 }
 
+const range =
+  (start: number) =>
+  (end: number): number[] =>
+    start === end ? [start] : [start, ...range(start + 1)(end)];
+
 @Component({
   selector: "app-search-view",
   templateUrl: "./search-view.component.html",
@@ -22,9 +27,10 @@ export class SearchViewComponent implements OnInit {
   category: Categories = defaultCategory;
   query = "";
   Categories = Categories;
-  page = 1;
+  currentPage = 1;
   items: Array<Anime | Manga> = [];
   max_pages = 1;
+  range = range;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +45,7 @@ export class SearchViewComponent implements OnInit {
         this.category = category;
       }
 
-      this.searchPage(this.page).then(({ pagination }) => {
+      this.searchPage(this.currentPage).then(({ pagination }) => {
         this.max_pages = pagination.last_visible_page;
       });
     });
@@ -53,7 +59,10 @@ export class SearchViewComponent implements OnInit {
 
     return lastValueFrom(observable).then(
       sideEffect(({ data }) => {
+        console.log("page response:", data);
+        console.log("page number:", page);
         this.items = data;
+        this.currentPage = page;
       })
     );
   }
@@ -66,5 +75,17 @@ export class SearchViewComponent implements OnInit {
 
   selectItem(id: string | number): void {
     this.router.navigateByUrl(`/resource/${this.category}/${id}`);
+  }
+
+  hasPagination() {
+    return this.max_pages > 1;
+  }
+
+  hasPreviousPage() {
+    return this.currentPage > 1;
+  }
+
+  hasNextPage() {
+    return this.currentPage < this.max_pages;
   }
 }

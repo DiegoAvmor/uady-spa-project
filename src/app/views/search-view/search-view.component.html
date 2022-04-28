@@ -26,5 +26,45 @@
         </mat-card-content>
       </mat-card>
     </div>
+    <div class="pagination-container" *ngIf="hasPagination()">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="pagination-item"
+        *ngIf="hasPreviousPage()"
+        (click)="searchPage(currentPage - 1)"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <ng-container *ngFor="let pageOption of range(1)(max_pages)">
+        <button
+          mat-raised-button
+          color="primary"
+          class="pagination-item"
+          (click)="searchPage(pageOption)"
+          *ngIf="pageOption === currentPage"
+        >
+          {{pageOption}}
+        </button>
+        <button
+          mat-stroked-button
+          color="primary"
+          class="pagination-item"
+          (click)="searchPage(pageOption)"
+          *ngIf="pageOption !== currentPage"
+        >
+          {{pageOption}}
+        </button>
+      </ng-container>
+      <button 
+        mat-stroked-button
+        color="primary"
+        class="pagination-item"
+        *ngIf="hasNextPage()"
+        (click)="searchPage(currentPage + 1)"
+      >
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
   </div>
 </div>
