@@ -7,7 +7,7 @@ import { Manga } from "../models/manga";
 import { ItemDetails } from "../models/item-details";
 import { Paginated } from "../models/paginated";
 
-const max_searched_items = 16;
+const max_searched_items = 15;
 
 @Injectable({
   providedIn: "root",
