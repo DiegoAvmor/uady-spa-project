@@ -5,4 +5,3 @@ export interface HomeViewCard {
   images: Images;
   title: string;
 }
-
