@@ -1,0 +1,43 @@
+@import "variables"
+
+$border: solid 1px #e0e0e0
+
+.saved-items
+  border: $border
+
+  &__header
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1em
+    border-bottom: $border
+    @media screen and (max-width: $bp-sm)
+      flex-direction: column
+      align-items: flex-start
+      gap: 1em
+
+    &__title
+      margin: 0em
+
+    &__export-options
+      display: flex
+      gap: 1em
+      align-items: center
+
+  &__table
+    width: 100%
+
+    // Table column widths.
+    & .mat-column-itemCategory
+      width: 64%
+    & .mat-column-rating
+      width: 12%
+    & .mat-column-status
+      width: 12%
+      @media screen and (max-width: $bp-sm)
+        display: none
+    & .mat-column-year
+      width: 12%
+      @media screen and (max-width: $bp-sm)
+        display: none

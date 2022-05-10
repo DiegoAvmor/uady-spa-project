@@ -24,7 +24,9 @@ export class NavbarComponent {
   }
 
   performSearch() {
-    this.router.navigateByUrl(`/search?query=${this.searchTerm}`);
+    if (this.searchTerm) {
+      this.router.navigateByUrl(`/search?query=${this.searchTerm}`);
+    }
   }
 
   loginButtonCallback() {

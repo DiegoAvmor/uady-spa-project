@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchViewComponent } from "./search-view.component";
+import { ProfileSavedItemsComponent } from "./profile-saved-items.component";
 
-describe("SearchViewComponent", () => {
-  let component: SearchViewComponent;
-  let fixture: ComponentFixture<SearchViewComponent>;
+describe("ProfileSavedItemsComponent", () => {
+  let component: ProfileSavedItemsComponent;
+  let fixture: ComponentFixture<ProfileSavedItemsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchViewComponent],
+      declarations: [ProfileSavedItemsComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchViewComponent);
+    fixture = TestBed.createComponent(ProfileSavedItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
