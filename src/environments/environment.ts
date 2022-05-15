@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: "https://api.jikan.moe/v4",
+  backendApiUrl: "http://localhost:8080/api"
 };
 
 /*
