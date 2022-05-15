@@ -13,6 +13,8 @@ export class AdminViewComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'action'];
   dataSource:User[] = [];
   isLoading = true;
+  error = false;
+  success = false;
 
   constructor(private apiService: ApiService,public dialog: MatDialog){}
 
@@ -22,18 +24,24 @@ export class AdminViewComponent implements OnInit {
 
 
   getAllUsers():void{
+    this.isLoading = true;
+    this.error = false;
+    this.success = true;
     this.apiService.getAllUsers()
     .subscribe({
       next: (response: User[]) => {
         this.dataSource = response;
-        console.log(response);
+        this.isLoading = false;
+        this.success = true;
       },
       error: (e) => {
         this.isLoading = false;
-        //TODO: Redirect to not found
+        this.error = true;
+        this.success = false;
         console.error(e);
       },
       complete: () => {
+        this.success = true;
         this.isLoading = false;
       },
     });
@@ -42,10 +50,12 @@ export class AdminViewComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '500px',
       data: { id:selectedUser.id , name: selectedUser.name},
+      disableClose: true
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe( () => {
+      //Update view with changes
+      this.getAllUsers();
     });
   }
 

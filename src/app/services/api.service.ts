@@ -76,8 +76,17 @@ export class ApiService {
     .pipe(tap((users) => console.log(`Get All Users`, users)));
   }
 
+  deleteUser(userId:number): Observable<User>{
+    let requestHeaders = new HttpHeaders();
+    requestHeaders = requestHeaders.set('Authorization', this.getToken());
+    return this.http
+    .delete<User>(
+      `${this.backendApiUrl}/users/${userId}`,
+      { headers: requestHeaders}
+    )
+  }
   //Dummy
   getToken(){
-    return "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJuYW1lIjoiaGVybmFuIiwicm9sZSI6InJlZ3VsYXIifSwiaWF0IjoxNjUyNjI5Mzg4fQ.FSLf66TrllJgb6asluIHTSX7Sd1KG71g5Thw2WxF9NY"
+    return "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJuYW1lIjoiaGVybmFuIiwicm9sZSI6InJlZ3VsYXIifSwiaWF0IjoxNjUyNjM3NTcwfQ.ChycSu1QzkW1Dpze75L7CPfwang-cDl8gjFl8i2Dmjc"
   }
 }

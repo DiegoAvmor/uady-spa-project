@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -8,13 +9,32 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DeleteDialogComponent implements OnInit {
 
+  showError = false;
+  showSuccess = false;
+
   constructor(
+    private apiService: ApiService,
     public dialogRef: MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
   ) {}
 
-  onNoClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  deleteUser(userId:number){
+    this.showError = false;
+    this.showSuccess = false;
+    this.apiService.deleteUser(userId).subscribe({
+      next: (response) => {
+        this.showSuccess = true;
+        console.log(response);
+      },
+      error: (e) => {
+        this.showError = true;
+        console.log(e);
+      }
+    });
   }
 
   ngOnInit(): void {}
