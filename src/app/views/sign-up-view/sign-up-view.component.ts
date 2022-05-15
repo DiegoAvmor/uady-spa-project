@@ -6,7 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { firstValueFrom } from "rxjs";
-import { AUTH_ROLES } from "src/app/config/AUTH_ROLES";
+import { AuthRoles } from "src/app/config/AuthRoles";
 import { User } from "src/app/models/user";
 import { UserRole } from "src/app/models/user-role";
 import { AuthService } from "src/app/services/auth.service";
@@ -60,7 +60,7 @@ export class SignUpViewComponent implements OnInit {
         name: this.controls["username"].value,
         password: this.controls["password"].value,
         email: this.controls["email"].value,
-        role: { name: AUTH_ROLES.REGULAR } as UserRole,
+        role: { name: AuthRoles.REGULAR } as UserRole,
       } as User)
     )
       .then(() => {
