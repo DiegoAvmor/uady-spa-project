@@ -28,22 +28,10 @@ export class AuthService {
       );
   }
 
-  getJwt(
-    userCredentials: UserCredentials
-  ): Observable<AuthData | HttpErrorResponse> {
-    return this.http
-      .post<AuthData | HttpErrorResponse>(
-        `${this.API_BASE_URL}/login`,
-        userCredentials
-      )
-      .pipe(
-        tap((res) => {
-          if (env.log.debug && res instanceof HttpErrorResponse) {
-            console.error("Error signing in the user", res);
-            return;
-          }
-          env.log.debug && console.log("Success. User signed in", res);
-        })
-      );
+  getJwt(userCredentials: UserCredentials): Observable<AuthData> {
+    return this.http.post<AuthData>(
+      `${this.API_BASE_URL}/login`,
+      userCredentials
+    );
   }
 }
