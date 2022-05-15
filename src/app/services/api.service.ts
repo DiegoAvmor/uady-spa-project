@@ -1,11 +1,12 @@
 import { environment } from "../../environments/environment";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import { Anime } from "../models/anime";
 import { Manga } from "../models/manga";
 import { ItemDetails } from "../models/item-details";
 import { Paginated } from "../models/paginated";
+import { User } from "../models/user";
 
 const max_searched_items = 15;
 
@@ -14,9 +15,11 @@ const max_searched_items = 15;
 })
 export class ApiService {
   private apiUrl: string = environment.apiUrl;
+  private backendApiUrl: string = environment.backendApiUrl;
 
   constructor(private http: HttpClient) {}
 
+  //Third Party Api Declarations
   getResourceDetailsByTypeAndId(
     type: string,
     id: string
@@ -59,5 +62,22 @@ export class ApiService {
         `${this.apiUrl}/manga?q=${query}&page=${page}&limit=${max_searched_items}`
       )
       .pipe(tap((manga) => console.log(`Search manga`, manga)));
+  }
+
+  //Back End Api Service Declarations
+  getAllUsers(): Observable<User[]>{
+    let requestHeaders = new HttpHeaders();
+    requestHeaders = requestHeaders.set('Authorization', this.getToken());
+    return this.http
+    .get<User[]>(
+      `${this.backendApiUrl}/users`,
+      { headers: requestHeaders}
+    )
+    .pipe(tap((users) => console.log(`Get All Users`, users)));
+  }
+
+  //Dummy
+  getToken(){
+    return "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJuYW1lIjoiaGVybmFuIiwicm9sZSI6InJlZ3VsYXIifSwiaWF0IjoxNjUyNjI5Mzg4fQ.FSLf66TrllJgb6asluIHTSX7Sd1KG71g5Thw2WxF9NY"
   }
 }
