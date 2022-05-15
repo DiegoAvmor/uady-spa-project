@@ -31,6 +31,7 @@ import { MatTableModule } from "@angular/material/table";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
 import { HomeViewComponent } from "./views/home-view/home-view.component";
+import { AdminViewComponent } from "./views/admin-view/admin-view.component";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { HomeViewComponent } from "./views/home-view/home-view.component";
     SignUpViewComponent,
     SignInViewComponent,
     HomeViewComponent,
+    AdminViewComponent,
   ],
   imports: [
     BrowserModule,
