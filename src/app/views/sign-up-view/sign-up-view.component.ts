@@ -49,7 +49,7 @@ export class SignUpViewComponent implements OnInit {
     return this.signUpForm.controls;
   }
 
-  submitSignUpForm() {
+  submitSignUpForm(): void {
     firstValueFrom(
       this.authService.createUser({
         name: this.controls["username"].value,

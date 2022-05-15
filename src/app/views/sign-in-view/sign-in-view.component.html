@@ -1,7 +1,7 @@
 <div class="form-card">
   <mat-card-title>Sign In</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="signInForm">
+    <form [formGroup]="signInForm" (submit)="submitSignInForm()">
       <mat-form-field appearance="fill" color="primary" class="form-group">
         <mat-label>Username</mat-label>
         <mat-icon matPrefix>person</mat-icon>
@@ -12,9 +12,12 @@
           name="username"
         />
         <mat-error
-          *ngIf="this.form['username'].invalid && this.form['username'].touched"
+          *ngIf="
+            this.controls['username'].invalid &&
+            this.controls['username'].touched
+          "
         >
-          <span *ngIf="this.form['username'].hasError('required')"
+          <span *ngIf="this.controls['username'].hasError('required')"
             >This field is required</span
           >
         </mat-error>
@@ -30,9 +33,12 @@
           name="password"
         />
         <mat-error
-          *ngIf="this.form['password'].invalid && this.form['password'].touched"
+          *ngIf="
+            this.controls['password'].invalid &&
+            this.controls['password'].touched
+          "
         >
-          <span *ngIf="this.form['password'].hasError('required')"
+          <span *ngIf="this.controls['password'].hasError('required')"
             >This field is required</span
           >
         </mat-error>
