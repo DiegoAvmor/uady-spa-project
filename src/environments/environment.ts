@@ -12,7 +12,7 @@ export const environment = {
       url: "https://api.jikan.moe/v4",
     },
     auth: {
-      url: "localhost:8080/api",
+      url: "http://localhost:8080/api",
     },
   },
 };

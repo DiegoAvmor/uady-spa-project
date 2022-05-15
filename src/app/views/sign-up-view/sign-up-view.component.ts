@@ -5,6 +5,12 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { firstValueFrom } from "rxjs";
+import { environment as env } from "src/environments/environment";
+import { AUTH_ROLES } from "src/app/config/AUTH_ROLES";
+import { User } from "src/app/models/user";
+import { UserRole } from "src/app/models/user-role";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-sign-up-view",
@@ -14,23 +20,37 @@ import {
 export class SignUpViewComponent implements OnInit {
   signUpForm!: FormGroup;
 
+  constructor(private authService: AuthService) {}
+
   ngOnInit(): void {
     this.signUpForm = new FormBuilder().group({
       username: new FormControl("", Validators.required),
       email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", Validators.required),
-      repeatPassword: new FormControl("", [Validators.required]),
+      passwordAgain: new FormControl("", Validators.required),
     });
   }
 
-  validatePassword(e: any) {
-    const confirmPassword = e.value;
-    if (this.form["password"].value != confirmPassword) {
-      this.form["repeatPassword"].setErrors({ notSame: true });
+  get controls() {
+    return this.signUpForm.controls;
+  }
+
+  validatePassword() {
+    if (
+      this.controls["password"].value != this.controls["passwordAgain"].value
+    ) {
+      this.controls["passwordAgain"].setErrors({ notSame: true });
     }
   }
 
-  get form() {
-    return this.signUpForm.controls;
+  submitSignUpForm() {
+    firstValueFrom(
+      this.authService.createUser({
+        name: this.controls["username"].value,
+        password: this.controls["password"].value,
+        email: this.controls["email"].value,
+        role: { name: AUTH_ROLES.REGULAR } as UserRole,
+      } as User)
+    );
   }
 }
