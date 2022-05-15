@@ -31,6 +31,7 @@ import { MatTableModule } from "@angular/material/table";
 import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component";
 import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
 import { HomeViewComponent } from "./views/home-view/home-view.component";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { HomeViewComponent } from "./views/home-view/home-view.component";
     MatInputModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
   providers: [JikanService],
   bootstrap: [AppComponent],

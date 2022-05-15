@@ -11,6 +11,9 @@ import { User } from "src/app/models/user";
 import { UserRole } from "src/app/models/user-role";
 import { AuthService } from "src/app/services/auth.service";
 import { PasswordValidator } from "src/app/validators/PasswordValidator";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { HttpErrorResponse } from "@angular/common/http";
+import { ErrorCodes } from "src/app/config/ErrorCodes";
 
 @Component({
   selector: "app-sign-up-view",
@@ -20,7 +23,13 @@ import { PasswordValidator } from "src/app/validators/PasswordValidator";
 export class SignUpViewComponent implements OnInit {
   signUpForm!: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  private errorMessages = new Map();
+
+  constructor(private authService: AuthService, private snackBar: MatSnackBar) {
+    this.errorMessages.set(ErrorCodes.SER04, "Username not available");
+    this.errorMessages.set(ErrorCodes.SYS01, "Unexpected error");
+    this.errorMessages.set(ErrorCodes.SYS02, "Unexpected error");
+  }
 
   ngOnInit(): void {
     const passwordFormControl = new FormControl("", Validators.required);
@@ -48,6 +57,11 @@ export class SignUpViewComponent implements OnInit {
         email: this.controls["email"].value,
         role: { name: AUTH_ROLES.REGULAR } as UserRole,
       } as User)
-    );
+    ).catch((error: HttpErrorResponse) => {
+      const errorCode = error.error.code as string;
+      this.snackBar.open(this.errorMessages.get(errorCode), "Dismiss", {
+        duration: 3000,
+      });
+    });
   }
 }
