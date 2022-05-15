@@ -14,6 +14,7 @@ import { PasswordValidator } from "src/app/validators/PasswordValidator";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpErrorResponse } from "@angular/common/http";
 import { ErrorCodes } from "src/app/config/ErrorCodes";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sign-up-view",
@@ -25,7 +26,11 @@ export class SignUpViewComponent implements OnInit {
 
   private errorMessages = new Map();
 
-  constructor(private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.errorMessages.set(ErrorCodes.SER04, "Username not available");
     this.errorMessages.set(ErrorCodes.SYS01, "Unexpected error");
     this.errorMessages.set(ErrorCodes.SYS02, "Unexpected error");
@@ -57,11 +62,18 @@ export class SignUpViewComponent implements OnInit {
         email: this.controls["email"].value,
         role: { name: AUTH_ROLES.REGULAR } as UserRole,
       } as User)
-    ).catch((error: HttpErrorResponse) => {
-      const errorCode = error.error.code as string;
-      this.snackBar.open(this.errorMessages.get(errorCode), "Dismiss", {
-        duration: 3000,
+    )
+      .then(() => {
+        this.snackBar.open("User creation successful 😄", "Dismiss", {
+          duration: 3000,
+        });
+        this.router.navigate(["/signin"]);
+      })
+      .catch((error: HttpErrorResponse) => {
+        const errorCode = error.error.code as string;
+        this.snackBar.open(this.errorMessages.get(errorCode), "Dismiss", {
+          duration: 3000,
+        });
       });
-    });
   }
 }
