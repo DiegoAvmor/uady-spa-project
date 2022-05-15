@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from 'src/app/components/model/delete-dialog/delete-dialog.component';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,14 +14,14 @@ export class AdminViewComponent implements OnInit {
   dataSource:User[] = [];
   isLoading = true;
 
-  constructor(private apiService: ApiService,){}
+  constructor(private apiService: ApiService,public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.getAllUsers();
   }
 
 
-  getAllUsers(){
+  getAllUsers():void{
     this.apiService.getAllUsers()
     .subscribe({
       next: (response: User[]) => {
@@ -34,6 +36,16 @@ export class AdminViewComponent implements OnInit {
       complete: () => {
         this.isLoading = false;
       },
+    });
+  }
+  openDeleteDialog(selectedUser:User):void{
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '500px',
+      data: { id:selectedUser.id , name: selectedUser.name},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 

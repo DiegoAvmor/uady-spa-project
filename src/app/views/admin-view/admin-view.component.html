@@ -19,7 +19,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let user">
-          <button mat-raised-button color="primary">Delete</button>
+          <button mat-raised-button color="primary" (click)="openDeleteDialog(user)">Delete</button>
         </td>
       </ng-container>
 

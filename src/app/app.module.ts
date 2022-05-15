@@ -32,6 +32,8 @@ import { SignUpViewComponent } from "./views/sign-up-view/sign-up-view.component
 import { SignInViewComponent } from "./views/sign-in-view/sign-in-view.component";
 import { HomeViewComponent } from "./views/home-view/home-view.component";
 import { AdminViewComponent } from "./views/admin-view/admin-view.component";
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteDialogComponent } from './components/model/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { AdminViewComponent } from "./views/admin-view/admin-view.component";
     SignInViewComponent,
     HomeViewComponent,
     AdminViewComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { AdminViewComponent } from "./views/admin-view/admin-view.component";
     MatInputModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
