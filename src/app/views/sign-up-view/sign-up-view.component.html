@@ -69,23 +69,22 @@
         <mat-label>Repeat Password</mat-label>
         <mat-icon matPrefix>password</mat-icon>
         <input
-          (change)="validatePassword()"
           matInput
           type="password"
           placeholder="Repeat Password"
-          formControlName="passwordAgain"
-          name="passwordAgain"
+          formControlName="passwordRepetition"
+          name="passwordRepetition"
         />
         <mat-error
           *ngIf="
-            this.controls['passwordAgain'].invalid &&
-            this.controls['passwordAgain'].touched
+            this.controls['passwordRepetition'].invalid &&
+            this.controls['passwordRepetition'].touched
           "
         >
-          <span *ngIf="this.controls['passwordAgain'].hasError('required')"
+          <span *ngIf="this.controls['passwordRepetition'].hasError('required')"
             >This field is required</span
           >
-          <span *ngIf="this.controls['passwordAgain'].hasError('notSame')"
+          <span *ngIf="this.controls['passwordRepetition'].hasError('notSame')"
             >Please enter the same password</span
           >
         </mat-error>

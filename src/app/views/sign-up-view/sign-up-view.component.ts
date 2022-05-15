@@ -6,11 +6,11 @@ import {
   Validators,
 } from "@angular/forms";
 import { firstValueFrom } from "rxjs";
-import { environment as env } from "src/environments/environment";
 import { AUTH_ROLES } from "src/app/config/AUTH_ROLES";
 import { User } from "src/app/models/user";
 import { UserRole } from "src/app/models/user-role";
 import { AuthService } from "src/app/services/auth.service";
+import { PasswordValidator } from "src/app/validators/PasswordValidator";
 
 @Component({
   selector: "app-sign-up-view",
@@ -23,24 +23,21 @@ export class SignUpViewComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
+    const passwordFormControl = new FormControl("", Validators.required);
+
     this.signUpForm = new FormBuilder().group({
       username: new FormControl("", Validators.required),
       email: new FormControl("", [Validators.required, Validators.email]),
-      password: new FormControl("", Validators.required),
-      passwordAgain: new FormControl("", Validators.required),
+      password: passwordFormControl,
+      passwordRepetition: new FormControl("", [
+        Validators.required,
+        PasswordValidator.repetition(passwordFormControl),
+      ]),
     });
   }
 
   get controls() {
     return this.signUpForm.controls;
-  }
-
-  validatePassword() {
-    if (
-      this.controls["password"].value != this.controls["passwordAgain"].value
-    ) {
-      this.controls["passwordAgain"].setErrors({ notSame: true });
-    }
   }
 
   submitSignUpForm() {
