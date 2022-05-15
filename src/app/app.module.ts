@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { ApiService } from "./services/api.service";
+import { JikanService } from "./services/jikan.service";
 import { MatBadgeModule } from "@angular/material/badge";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatIconModule } from "@angular/material/icon";
@@ -69,7 +69,7 @@ import { HomeViewComponent } from "./views/home-view/home-view.component";
     MatTableModule,
     MatProgressSpinnerModule,
   ],
-  providers: [ApiService],
+  providers: [JikanService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
