@@ -13,28 +13,28 @@ export class NavbarItemLinkComponent implements OnInit {
   @Input() label!: string;
   @Input() allowedUserRoles!: string[];
 
-  inlineStyle: string;
+  userIsAllowed = false;
 
   ngOnInit(): void {
     const userSession = this.authService.getUserSessionSync();
-    this.updateInlineStyle(userSession);
+    this.updateUserAllowance(userSession);
   }
 
   constructor(private authService: AuthService) {
     // Listen to user session changes.
     this.authService.getUserSession().subscribe((userSession) => {
-      this.updateInlineStyle(userSession);
+      this.updateUserAllowance(userSession);
     });
   }
 
-  private updateInlineStyle(userSession: UserSession | null) {
+  private updateUserAllowance(userSession: UserSession | null) {
     if (
       userSession === null ||
       this.isActiveUserRoleAllowed(userSession.jwt.payload.user.role)
     ) {
-      this.inlineStyle = "";
+      this.userIsAllowed = true;
     } else {
-      this.inlineStyle = "display: none;";
+      this.userIsAllowed = false;
     }
   }
 
