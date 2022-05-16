@@ -3,13 +3,33 @@
     <app-navbar-link
       redirectUrl="/home"
       [activeUrl]="activeUrl"
+      [allowedUserRoles]="['regular']"
+      [allowedNonAuthUser]="true"
       label="Home"
     ></app-navbar-link>
 
     <app-navbar-link
       redirectUrl="/contact"
       [activeUrl]="activeUrl"
+      [allowedUserRoles]="['regular']"
+      [allowedNonAuthUser]="true"
       label="Contact"
+    ></app-navbar-link>
+
+    <!-- TODO: Add redirectUrl -->
+    <app-navbar-link
+      label="View users"
+      [activeUrl]="activeUrl"
+      [allowedUserRoles]="['admin']"
+      redirectUrl=""
+    ></app-navbar-link>
+
+    <!-- TODO: Add redirectUrl -->
+    <app-navbar-link
+      label="Sign up user"
+      [activeUrl]="activeUrl"
+      [allowedUserRoles]="['admin']"
+      redirectUrl=""
     ></app-navbar-link>
   </div>
 
@@ -29,13 +49,32 @@
       <app-navbar-link
         label="Sign In"
         [activeUrl]="activeUrl"
+        [allowedUserRoles]="['regular']"
+        [allowedNonAuthUser]="true"
+        [denyRendering]="getUserSession() !== null"
         redirectUrl="/signin"
       ></app-navbar-link>
 
       <app-navbar-link
         label="Sign Up"
         [activeUrl]="activeUrl"
-        redirectUrl="/register"
+        [allowedUserRoles]="['regular']"
+        [allowedNonAuthUser]="true"
+        [denyRendering]="getUserSession() !== null"
+        redirectUrl="/signup"
+      ></app-navbar-link>
+
+      <app-navbar-button
+        label="Sign out"
+        [allowedUserRoles]="['regular', 'admin']"
+        [callback]="destroyUserSession"
+      ></app-navbar-button>
+
+      <app-navbar-link
+        [label]="username"
+        [activeUrl]="activeUrl"
+        [allowedUserRoles]="['regular', 'admin']"
+        redirectUrl="/users/{{ username }}"
       ></app-navbar-link>
     </div>
   </div>

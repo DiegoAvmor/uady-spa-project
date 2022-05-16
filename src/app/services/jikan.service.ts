@@ -1,4 +1,4 @@
-import { environment } from "../../environments/environment";
+import { environment as env } from "../../environments/environment";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
@@ -13,9 +13,8 @@ const max_searched_items = 15;
 @Injectable({
   providedIn: "root",
 })
-export class ApiService {
-  private apiUrl: string = environment.apiUrl;
-  private backendApiUrl: string = environment.backendApiUrl;
+export class JikanService {
+  private apiUrl: string = env.api.jikan.url;
 
   constructor(private http: HttpClient) {}
 

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: "contact", component: ContactViewComponent },
   { path: "search", component: SearchViewComponent },
   { path: "users/:username", component: ProfileViewComponent },
-  { path: "register", component: SignUpViewComponent },
+  { path: "signup", component: SignUpViewComponent },
   { path: "signin", component: SignInViewComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeViewComponent },

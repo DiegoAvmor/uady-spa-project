@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { NavigationEnd, Router } from "@angular/router";
+import { UserSession } from "src/app/models/user-session";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-navbar",
@@ -7,17 +10,20 @@ import { NavigationEnd, Router } from "@angular/router";
   styleUrls: ["./navbar.component.sass"],
 })
 export class NavbarComponent {
-  activeUrl = "";
-  searchTerm = "";
+  activeUrl!: string;
+  searchTerm!: string;
 
-  constructor(private router: Router) {
-    this.router = router;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private snackBar: MatSnackBar
+  ) {
     this.activeUrl = router.url;
 
     // Listen to url changes.
-    this.router.events.subscribe((value) => {
-      if (value instanceof NavigationEnd) {
-        const navigationEnd = value as NavigationEnd;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const navigationEnd = event as NavigationEnd;
         this.activeUrl = navigationEnd.url;
       }
     });
@@ -29,11 +35,22 @@ export class NavbarComponent {
     }
   }
 
-  loginButtonCallback() {
-    console.log("Login button has been clicked.");
+  getUserSession(): UserSession | null {
+    return this.authService.getUserSessionSync();
   }
 
-  signUpButtonCallback() {
-    console.log("Sign up button has been clicked.");
+  destroyUserSession = (): void => {
+    this.authService.destroyUserSession();
+    this.router.navigate(["/home"]);
+    this.snackBar.open("Sign out successful", "Dismiss", { duration: 3000 });
+  };
+
+  get username(): string {
+    const userSession = this.authService.getUserSessionSync();
+
+    if (userSession === null) {
+      return "";
+    }
+    return userSession.jwt.payload.user.name;
   }
 }
