@@ -1,12 +1,11 @@
 import { environment as env } from "../../environments/environment";
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import { Anime } from "../models/anime";
 import { Manga } from "../models/manga";
 import { ItemDetails } from "../models/item-details";
 import { Paginated } from "../models/paginated";
-import { User } from "../models/user";
 
 const max_searched_items = 15;
 
@@ -18,7 +17,6 @@ export class JikanService {
 
   constructor(private http: HttpClient) {}
 
-  //Third Party Api Declarations
   getResourceDetailsByTypeAndId(
     type: string,
     id: string
@@ -61,31 +59,5 @@ export class JikanService {
         `${this.apiUrl}/manga?q=${query}&page=${page}&limit=${max_searched_items}`
       )
       .pipe(tap((manga) => console.log(`Search manga`, manga)));
-  }
-
-  //Back End Api Service Declarations
-  getAllUsers(): Observable<User[]>{
-    let requestHeaders = new HttpHeaders();
-    requestHeaders = requestHeaders.set('Authorization', this.getToken());
-    return this.http
-    .get<User[]>(
-      `${this.backendApiUrl}/users`,
-      { headers: requestHeaders}
-    )
-    .pipe(tap((users) => console.log(`Get All Users`, users)));
-  }
-
-  deleteUser(userId:number): Observable<User>{
-    let requestHeaders = new HttpHeaders();
-    requestHeaders = requestHeaders.set('Authorization', this.getToken());
-    return this.http
-    .delete<User>(
-      `${this.backendApiUrl}/users/${userId}`,
-      { headers: requestHeaders}
-    )
-  }
-  //Dummy
-  getToken(){
-    return "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5LCJuYW1lIjoiaGVybmFuIiwicm9sZSI6InJlZ3VsYXIifSwiaWF0IjoxNjUyNjM3NTcwfQ.ChycSu1QzkW1Dpze75L7CPfwang-cDl8gjFl8i2Dmjc"
   }
 }
