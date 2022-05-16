@@ -1,8 +1,8 @@
+import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from 'src/app/components/model/delete-dialog/delete-dialog.component';
 import { User } from 'src/app/models/user';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-admin-view',
