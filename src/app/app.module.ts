@@ -70,7 +70,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatInputModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
     MatSnackBarModule,
   ],
   providers: [JikanService],
