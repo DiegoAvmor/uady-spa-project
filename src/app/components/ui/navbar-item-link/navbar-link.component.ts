@@ -13,6 +13,7 @@ export class NavbarItemLinkComponent implements OnInit {
   @Input() label!: string;
   @Input() allowedUserRoles!: string[];
   @Input() allowedNonAuthUser = false;
+  @Input() denyRender = false;
 
   userIsAllowed = false;
 
@@ -28,16 +29,21 @@ export class NavbarItemLinkComponent implements OnInit {
     });
   }
 
-  private updateUserAllowance(userSession: UserSession | null) {
+  private updateUserAllowance(userSession: UserSession | null): void {
     if (
-      this.allowedNonAuthUser ||
-      (userSession !== null &&
-        this.isActiveUserRoleAllowed(userSession.jwt.payload.user.role))
+      userSession !== null &&
+      !this.isActiveUserRoleAllowed(userSession.jwt.payload.user.role)
     ) {
-      this.userIsAllowed = true;
-    } else {
       this.userIsAllowed = false;
+      return;
     }
+
+    if (userSession === null && !this.allowedNonAuthUser) {
+      this.userIsAllowed = false;
+      return;
+    }
+
+    this.userIsAllowed = true;
   }
 
   private isActiveUserRoleAllowed(role: string) {

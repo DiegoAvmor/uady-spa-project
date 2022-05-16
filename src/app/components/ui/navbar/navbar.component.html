@@ -35,6 +35,7 @@
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
         [allowedNonAuthUser]="true"
+        [denyRender]="isUserAuthenticated()"
         redirectUrl="/signin"
       ></app-navbar-link>
 
@@ -43,7 +44,21 @@
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
         [allowedNonAuthUser]="true"
+        [denyRender]="isUserAuthenticated()"
         redirectUrl="/signup"
+      ></app-navbar-link>
+
+      <app-navbar-button
+        label="Sign out"
+        [allowedUserRoles]="['regular', 'admin']"
+        [callback]="destroyUserSession"
+      ></app-navbar-button>
+
+      <app-navbar-link
+        [label]="username"
+        [activeUrl]="activeUrl"
+        [allowedUserRoles]="['regular', 'admin']"
+        redirectUrl="/users/{{ username }}"
       ></app-navbar-link>
     </div>
   </div>

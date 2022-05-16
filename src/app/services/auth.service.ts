@@ -31,7 +31,7 @@ export class AuthService {
 
   updateUserSession(jwtText: string): void {
     localStorage.setItem(LocalStorageKeys.JWT, jwtText);
-    window.dispatchEvent(new Event(DomEvents.UPDATE_USER_SESSION));
+    window.dispatchEvent(new Event(DomEvents.MUTATED_USER_SESSION));
   }
 
   getUserSessionSync(): UserSession | null {
@@ -44,9 +44,9 @@ export class AuthService {
 
   getUserSession(): Observable<UserSession | null> {
     return new Observable((observer) => {
-      if (!DomEvents.added[DomEvents.UPDATE_USER_SESSION]) {
+      if (!DomEvents.added[DomEvents.MUTATED_USER_SESSION]) {
         window.addEventListener(
-          DomEvents.UPDATE_USER_SESSION,
+          DomEvents.MUTATED_USER_SESSION,
           () => {
             const jwtText = this.getJwtText();
             if (jwtText === null) {
@@ -61,6 +61,11 @@ export class AuthService {
         );
       }
     });
+  }
+
+  destroyUserSession(): void {
+    localStorage.removeItem(LocalStorageKeys.JWT);
+    window.dispatchEvent(new Event(DomEvents.MUTATED_USER_SESSION));
   }
 
   private getJwtText(): string | null {

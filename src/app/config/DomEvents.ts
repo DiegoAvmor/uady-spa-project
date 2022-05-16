@@ -1,9 +1,9 @@
 export class DomEvents {
-  /** User session has been set, or the value has been changed. */
-  static UPDATE_USER_SESSION = "updateUserSession";
+  /** User session has been set, destroyed or changed. */
+  static MUTATED_USER_SESSION = "updateUserSession";
 
   /** Keeps a registry of which app DOM events have been added to window (global scope). */
   static added = {
-    [this.UPDATE_USER_SESSION]: false,
+    [this.MUTATED_USER_SESSION]: false,
   };
 }

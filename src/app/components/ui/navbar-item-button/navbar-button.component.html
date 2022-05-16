@@ -1,3 +1,8 @@
-<button id="navbar-button" mat-button (click)="callback()">
+<button
+  mat-button
+  id="navbar-button"
+  *ngIf="!denyRender && userIsAllowed"
+  (click)="callback()"
+>
   {{ label }}
 </button>
