@@ -15,6 +15,22 @@
       [allowedNonAuthUser]="true"
       label="Contact"
     ></app-navbar-link>
+
+    <!-- TODO: Add redirectUrl -->
+    <app-navbar-link
+      label="View users"
+      [activeUrl]="activeUrl"
+      [allowedUserRoles]="['admin']"
+      redirectUrl=""
+    ></app-navbar-link>
+
+    <!-- TODO: Add redirectUrl -->
+    <app-navbar-link
+      label="Sign up user"
+      [activeUrl]="activeUrl"
+      [allowedUserRoles]="['admin']"
+      redirectUrl=""
+    ></app-navbar-link>
   </div>
 
   <div id="navbar__actions">
