@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { UserSession } from "src/app/models/user-session";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -29,8 +30,8 @@ export class NavbarComponent {
     }
   }
 
-  isUserAuthenticated(): boolean {
-    return this.authService.getUserSessionSync() !== null;
+  getUserSession(): UserSession | null {
+    return this.authService.getUserSessionSync();
   }
 
   destroyUserSession = (): void => {

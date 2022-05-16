@@ -13,7 +13,7 @@ export class NavbarItemLinkComponent implements OnInit {
   @Input() label!: string;
   @Input() allowedUserRoles!: string[];
   @Input() allowedNonAuthUser = false;
-  @Input() denyRender = false;
+  @Input() denyRendering = false;
 
   userIsAllowed = false;
 

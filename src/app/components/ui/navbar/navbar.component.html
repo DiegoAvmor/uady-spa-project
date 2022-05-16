@@ -35,7 +35,7 @@
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
         [allowedNonAuthUser]="true"
-        [denyRender]="isUserAuthenticated()"
+        [denyRendering]="getUserSession() !== null"
         redirectUrl="/signin"
       ></app-navbar-link>
 
@@ -44,7 +44,7 @@
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
         [allowedNonAuthUser]="true"
-        [denyRender]="isUserAuthenticated()"
+        [denyRendering]="getUserSession() !== null"
         redirectUrl="/signup"
       ></app-navbar-link>
 

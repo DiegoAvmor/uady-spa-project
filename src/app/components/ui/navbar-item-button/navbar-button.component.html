@@ -1,7 +1,7 @@
 <button
   mat-button
   id="navbar-button"
-  *ngIf="!denyRender && userIsAllowed"
+  *ngIf="!denyRendering && userIsAllowed"
   (click)="callback()"
 >
   {{ label }}

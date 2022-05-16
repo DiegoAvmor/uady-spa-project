@@ -11,7 +11,7 @@ export class NavbarItemButtonComponent {
   @Input() label!: string;
   @Input() allowedUserRoles!: string[];
   @Input() allowedNonAuthUser = false;
-  @Input() denyRender = false;
+  @Input() denyRendering = false;
   @Input() callback!: () => void;
 
   userIsAllowed = false;
