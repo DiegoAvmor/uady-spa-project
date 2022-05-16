@@ -9,7 +9,6 @@ import {
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { firstValueFrom } from "rxjs";
 import { ErrorCodes } from "src/app/config/ErrorCodes";
-import { LocalStorageKeys } from "src/app/config/LocalStorageKeys";
 import { AuthData } from "src/app/models/auth-data";
 import { UserCredentials } from "src/app/models/user-credentials";
 import { AuthService } from "src/app/services/auth.service";
@@ -48,13 +47,13 @@ export class SignInViewComponent implements OnInit {
 
   submitSignInForm(): void {
     firstValueFrom(
-      this.authService.getJwt({
+      this.authService.authenticateUser({
         name: this.controls["username"].value,
         password: this.controls["password"].value,
       } as UserCredentials)
     )
       .then((res: AuthData) => {
-        localStorage.setItem(LocalStorageKeys.JWT, res.token);
+        this.authService.updateUserSession(res.token);
         this.router.navigate(["/home"]);
       })
       .catch((error: HttpErrorResponse) => {

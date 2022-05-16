@@ -7,17 +7,16 @@ import { NavigationEnd, Router } from "@angular/router";
   styleUrls: ["./navbar.component.sass"],
 })
 export class NavbarComponent {
-  activeUrl = "";
-  searchTerm = "";
+  activeUrl!: string;
+  searchTerm!: string;
 
   constructor(private router: Router) {
-    this.router = router;
     this.activeUrl = router.url;
 
     // Listen to url changes.
-    this.router.events.subscribe((value) => {
-      if (value instanceof NavigationEnd) {
-        const navigationEnd = value as NavigationEnd;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const navigationEnd = event as NavigationEnd;
         this.activeUrl = navigationEnd.url;
       }
     });
@@ -27,13 +26,5 @@ export class NavbarComponent {
     if (this.searchTerm) {
       this.router.navigateByUrl(`/search?query=${this.searchTerm}`);
     }
-  }
-
-  loginButtonCallback() {
-    console.log("Login button has been clicked.");
-  }
-
-  signUpButtonCallback() {
-    console.log("Sign up button has been clicked.");
   }
 }

@@ -3,12 +3,14 @@
     <app-navbar-link
       redirectUrl="/home"
       [activeUrl]="activeUrl"
+      [allowedUserRoles]="['regular']"
       label="Home"
     ></app-navbar-link>
 
     <app-navbar-link
       redirectUrl="/contact"
       [activeUrl]="activeUrl"
+      [allowedUserRoles]="['regular']"
       label="Contact"
     ></app-navbar-link>
   </div>
@@ -29,12 +31,14 @@
       <app-navbar-link
         label="Sign In"
         [activeUrl]="activeUrl"
+        [allowedUserRoles]="['regular']"
         redirectUrl="/signin"
       ></app-navbar-link>
 
       <app-navbar-link
         label="Sign Up"
         [activeUrl]="activeUrl"
+        [allowedUserRoles]="['regular']"
         redirectUrl="/signup"
       ></app-navbar-link>
     </div>
