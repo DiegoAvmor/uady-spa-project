@@ -55,6 +55,9 @@ export class SignInViewComponent implements OnInit {
       .then((res: AuthData) => {
         this.authService.updateUserSession(res.token);
         this.router.navigate(["/home"]);
+        this.snackBar.open("Sign in successful", "Dismiss", {
+          duration: 3000,
+        });
       })
       .catch((error: HttpErrorResponse) => {
         const errorCode = error.error.code as string;

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { NavigationEnd, Router } from "@angular/router";
 import { UserSession } from "src/app/models/user-session";
 import { AuthService } from "src/app/services/auth.service";
@@ -12,7 +13,11 @@ export class NavbarComponent {
   activeUrl!: string;
   searchTerm!: string;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private snackBar: MatSnackBar
+  ) {
     this.activeUrl = router.url;
 
     // Listen to url changes.
@@ -37,6 +42,7 @@ export class NavbarComponent {
   destroyUserSession = (): void => {
     this.authService.destroyUserSession();
     this.router.navigate(["/home"]);
+    this.snackBar.open("Sign out successful", "Dismiss", { duration: 3000 });
   };
 
   get username(): string {
