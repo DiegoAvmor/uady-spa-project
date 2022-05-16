@@ -18,8 +18,6 @@ import { ComasListPipe } from "./pipes/comas-list.pipe";
 import { NavbarComponent } from "./components/ui/navbar/navbar.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
-import { AnimesViewComponent } from "./views/animes-view/animes-view.component";
-import { MangasViewComponent } from "./views/mangas-view/mangas-view.component";
 import { ContactViewComponent } from "./views/contact-view/contact-view.component";
 import { SearchViewComponent } from "./views/search-view/search-view.component";
 import { NavbarItemLinkComponent } from "./components/ui/navbar-item-link/navbar-link.component";
@@ -39,8 +37,6 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     ResourceDetailsView,
     ComasListPipe,
     NavbarComponent,
-    AnimesViewComponent,
-    MangasViewComponent,
     ContactViewComponent,
     SearchViewComponent,
     NavbarItemLinkComponent,
