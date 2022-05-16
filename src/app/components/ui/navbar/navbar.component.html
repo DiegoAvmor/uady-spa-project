@@ -4,6 +4,7 @@
       redirectUrl="/home"
       [activeUrl]="activeUrl"
       [allowedUserRoles]="['regular']"
+      [allowedNonAuthUser]="true"
       label="Home"
     ></app-navbar-link>
 
@@ -11,6 +12,7 @@
       redirectUrl="/contact"
       [activeUrl]="activeUrl"
       [allowedUserRoles]="['regular']"
+      [allowedNonAuthUser]="true"
       label="Contact"
     ></app-navbar-link>
   </div>
@@ -32,6 +34,7 @@
         label="Sign In"
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
+        [allowedNonAuthUser]="true"
         redirectUrl="/signin"
       ></app-navbar-link>
 
@@ -39,6 +42,7 @@
         label="Sign Up"
         [activeUrl]="activeUrl"
         [allowedUserRoles]="['regular']"
+        [allowedNonAuthUser]="true"
         redirectUrl="/signup"
       ></app-navbar-link>
     </div>

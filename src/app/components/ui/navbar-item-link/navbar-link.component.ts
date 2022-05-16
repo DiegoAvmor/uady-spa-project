@@ -12,6 +12,7 @@ export class NavbarItemLinkComponent implements OnInit {
   @Input() activeUrl!: string;
   @Input() label!: string;
   @Input() allowedUserRoles!: string[];
+  @Input() allowedNonAuthUser = false;
 
   userIsAllowed = false;
 
@@ -29,8 +30,9 @@ export class NavbarItemLinkComponent implements OnInit {
 
   private updateUserAllowance(userSession: UserSession | null) {
     if (
-      userSession === null ||
-      this.isActiveUserRoleAllowed(userSession.jwt.payload.user.role)
+      this.allowedNonAuthUser ||
+      (userSession !== null &&
+        this.isActiveUserRoleAllowed(userSession.jwt.payload.user.role))
     ) {
       this.userIsAllowed = true;
     } else {
