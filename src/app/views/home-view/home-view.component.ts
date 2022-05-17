@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterContentInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ApiService } from "../../services/api.service";
+import { JikanService } from "../../services/jikan.service";
 import { HomeViewCard } from "../../models/home-view-card";
 import { Anime } from "../../models/anime";
 import { Manga } from "../../models/manga";
@@ -18,7 +18,7 @@ export class HomeViewComponent implements OnInit {
   isTopMangaLoading = true;
   isTopAnimeLoading = true;
 
-  constructor(private apiService: ApiService, private route: Router) {}
+  constructor(private apiService: JikanService, private route: Router) {}
 
   ngOnInit(): void {
     this.getTopAnime();

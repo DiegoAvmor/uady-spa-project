@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { lastValueFrom } from "rxjs";
 import { Anime } from "src/app/models/anime";
 import { Manga } from "src/app/models/manga";
-import { ApiService } from "src/app/services/api.service";
+import { JikanService } from "src/app/services/jikan.service";
 import { Categories, defaultCategory } from "src/constants";
 
 function sideEffect<Val>(effect: (_: Val) => unknown) {
@@ -35,7 +35,7 @@ export class SearchViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiService
+    private jikanService: JikanService
   ) {}
 
   ngOnInit(): void {
@@ -54,8 +54,8 @@ export class SearchViewComponent implements OnInit {
   searchPage(page: number) {
     const observable =
       this.category === Categories.ANIME
-        ? this.apiService.searchAnime(this.query, page)
-        : this.apiService.searchManga(this.query, page);
+        ? this.jikanService.searchAnime(this.query, page)
+        : this.jikanService.searchManga(this.query, page);
 
     return lastValueFrom(observable).then(
       sideEffect(({ data }) => {

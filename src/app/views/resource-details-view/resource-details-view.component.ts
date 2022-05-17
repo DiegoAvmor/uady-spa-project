@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { ApiService } from "../../services/api.service";
+import { JikanService } from "../../services/jikan.service";
 import { ItemDetails } from "../../models/item-details";
 
 @Component({
@@ -14,7 +14,10 @@ export class ResourceDetailsView implements OnInit {
   isRated = true;
   isSaved = true;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(
+    private apiService: JikanService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     //Get resource name and id from url
