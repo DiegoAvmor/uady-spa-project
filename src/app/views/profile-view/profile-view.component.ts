@@ -1,6 +1,9 @@
+import { ProfileSavedItem } from './../../models/profileSavedItem';
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from "@angular/core";
-import { SavedItem } from "src/app/models/SavedItem";
-
+import { AuthService } from "src/app/services/auth.service";
+import { Categories } from "src/constants";
+/*
 const dummyAnimes: SavedItem[] = [
   {
     url: "/resource/anime/21",
@@ -33,7 +36,7 @@ const dummyMangas: SavedItem[] = [
     status: "Finished",
     year: 2020,
   },
-];
+];*/
 
 @Component({
   selector: "app-profile-view",
@@ -41,13 +44,39 @@ const dummyMangas: SavedItem[] = [
   styleUrls: ["./profile-view.component.sass"],
 })
 export class ProfileViewComponent implements OnInit {
-  savedMangas!: SavedItem[];
-  savedAnimes!: SavedItem[];
+  username:string;
+  savedMangas!: ProfileSavedItem[];
+  savedAnimes!: ProfileSavedItem[];
 
-  constructor() {
-    this.savedAnimes = dummyAnimes;
-    this.savedMangas = dummyMangas;
+  ngOnInit(): void {
+    //Get Session
+    const userSession = this.authService.getUserSessionSync();
+    this.username = userSession!.jwt.payload.user.name;
+    //Get SavedItems of type Manga
+    this.apiService.getUserSavedItemsOfType(Categories.MANGA).subscribe({
+      next: (response:ProfileSavedItem[]) => {
+        console.log(response);
+        this.savedMangas = response;
+      },
+      error: (e) => {
+        console.log(e);
+      },
+      complete: () => {
+      },
+    });
+    //Get SavedItems of type Anime
+    this.apiService.getUserSavedItemsOfType(Categories.ANIME).subscribe({
+      next: (response:ProfileSavedItem[]) => {
+        console.log(response);
+        this.savedAnimes = response;
+      },
+      error: (e) => {
+        console.log(e);
+      },
+      complete: () => {
+      },
+    });
   }
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService, private apiService:ApiService) {}
 }

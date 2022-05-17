@@ -1,9 +1,13 @@
+import { ProfileSavedItem } from './../models/profileSavedItem';
+import { SavedItem } from 'src/app/models/savedItem';
+import { JikanService } from './jikan.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { User } from '../models/user';
 import { environment as env } from "src/environments/environment";
+import { ItemDetails } from '../models/item-details';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +16,36 @@ export class ApiService {
 
   private API_BASE_URL = `${env.api.auth.url}`;
 
-  constructor(private http: HttpClient, private authService:AuthService) {
+  constructor(private http: HttpClient, private authService:AuthService, private jikanService:JikanService) {
 
+  }
+
+
+  getUserSavedItemsOfType(type:string): Observable<any>{
+    return this.http
+    .get<any>(
+      `${this.API_BASE_URL}/items/user/type/${type}`,
+      { headers: this.getAuthorizationHeaders()}
+    )
+    .pipe(
+      switchMap( savedItems => {
+        const profileSavedItems = savedItems.map(
+          (apiItem:SavedItem) => {
+            return this.jikanService.getResourceDetailsByTypeAndId(type, apiItem.third_party_item_id.toString())
+            .pipe(
+              map((jikanItem:ItemDetails) => {
+                return {
+                  apiItem: apiItem,
+                  jikanItem: jikanItem,
+                  url: `/resource/${type}/${apiItem.third_party_item_id}`
+                }
+              })
+            )
+          }
+        );
+        return forkJoin(profileSavedItems);
+      }),
+    );
   }
 
 
