@@ -19,4 +19,8 @@ export class Jwt {
   get payload(): JwtPayload {
     return JSON.parse(atob(this.getPayloadText()));
   }
+
+  get token(): string{
+    return this.jwtText;
+  }
 }

@@ -35,7 +35,7 @@ export class ApiService {
   }
 
   getAuthorizationHeaders(){
-    const token = this.authService.getJwtText();
+    const token = this.authService.getUserSessionSync()?.jwt.token;
     let requestHeaders = new HttpHeaders();
     return requestHeaders.set('Authorization', `Bearer ${token!}`);
   }
