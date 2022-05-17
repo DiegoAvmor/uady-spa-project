@@ -3,7 +3,7 @@
     <app-navbar-link
       redirectUrl="/home"
       [activeUrl]="activeUrl"
-      [allowedUserRoles]="['regular']"
+      [allowedUserRoles]="['regular', 'admin']"
       [allowedNonAuthUser]="true"
       label="Home"
     ></app-navbar-link>
@@ -22,14 +22,6 @@
       [activeUrl]="activeUrl"
       [allowedUserRoles]="['admin']"
       redirectUrl="/admin/users/list"
-    ></app-navbar-link>
-
-    <!-- TODO: Add redirectUrl -->
-    <app-navbar-link
-      label="Sign up user"
-      [activeUrl]="activeUrl"
-      [allowedUserRoles]="['admin']"
-      redirectUrl=""
     ></app-navbar-link>
   </div>
 
