@@ -1,5 +1,3 @@
-import { ProfileSavedItem } from './../models/profileSavedItem';
-import { SavedItem } from 'src/app/models/savedItem';
 import { JikanService } from './jikan.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,6 +6,7 @@ import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { User } from '../models/user';
 import { environment as env } from "src/environments/environment";
 import { ItemDetails } from '../models/item-details';
+import { SavedItem } from '../models/savedItem';
 
 @Injectable({
   providedIn: 'root'
