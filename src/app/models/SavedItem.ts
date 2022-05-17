@@ -1,7 +1,12 @@
 export interface SavedItem {
-  url: string;
-  title: string;
-  rating: number;
-  status: string;
-  year: number;
+  id:number
+  third_party_item_id:number
+  user_rating: number;
+  user_id: number;
+  saved_item_type_id: SavedItemType
+}
+
+interface SavedItemType{
+  id:number
+  name:string
 }
