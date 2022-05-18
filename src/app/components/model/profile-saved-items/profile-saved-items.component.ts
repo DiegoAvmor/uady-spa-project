@@ -1,4 +1,4 @@
-import { ProfileSavedItem } from './../../../models/profileSavedItem';
+import { ProfileSavedItem } from "./../../../models/profileSavedItem";
 import { Component, Input, OnInit } from "@angular/core";
 import { ItemCategory } from "src/app/models/ItemCategory";
 

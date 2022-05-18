@@ -1,8 +1,8 @@
-import { SavedItem } from './savedItem';
+import { SavedItem } from "./savedItem";
 import { ItemDetails } from "./item-details";
 
 export interface ProfileSavedItem {
-  apiItem: SavedItem,
-  jikanItem: ItemDetails,
-  url: string
+  apiItem: SavedItem;
+  jikanItem: ItemDetails;
+  url: string;
 }
