@@ -6,6 +6,8 @@ import { environment as env } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { JikanService } from "./jikan.service";
+import { SavedItemType } from "../models/savedItemType";
+import { ProfileSavedItem } from "../models/profileSavedItem";
 
 @Injectable({
   providedIn: "root",
@@ -19,14 +21,14 @@ export class SavedItemService {
     private jikanService: JikanService
   ) {}
 
-  getUserSavedItemsOfType(type: string): Observable<any> {
+  getUserSavedItemsOfType(type: string): Observable<ProfileSavedItem[]> {
     return this.http
-      .get<any>(`${this.API_BASE_URL}/items/user/type/${type}`, {
+      .get<SavedItem[]>(`${this.API_BASE_URL}/items/user/type/${type}`, {
         headers: this.authService.getAuthorizationHeaders(),
       })
       .pipe(
         switchMap((savedItems) => {
-          const profileSavedItems = savedItems.map((apiItem: SavedItem) => {
+          const profileSavedItems = savedItems.map((apiItem:SavedItem) => {
             return this.jikanService
               .getResourceDetailsByTypeAndId(
                 type,
