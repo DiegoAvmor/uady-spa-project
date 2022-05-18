@@ -61,7 +61,7 @@ export class ResourceDetailsView implements OnInit {
     this.isSaved = false;
     this.isSavedItemLoading = true;
     this.savedItemService
-      .findJikanItemExistanceInSavedItems(Number(this.urlData.resourceId))
+      .findJikanItemExistenceInSavedItems(Number(this.urlData.resourceId))
       .subscribe({
         next: (response: SavedItem) => {
           this.isSaved = true;

@@ -49,7 +49,7 @@ export class SavedItemService {
       );
   }
 
-  findJikanItemExistanceInSavedItems(jikanId: number): Observable<SavedItem> {
+  findJikanItemExistenceInSavedItems(jikanId: number): Observable<SavedItem> {
     return this.http.get<SavedItem>(`${this.API_BASE_URL}/items/${jikanId}`, {
       headers: this.authService.getAuthorizationHeaders(),
     });
