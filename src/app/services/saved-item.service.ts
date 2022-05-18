@@ -1,6 +1,7 @@
+import { RequestSavedItem } from './../models/request/requestSavedItem';
 import { SavedItem } from './../models/savedItem';
 import { Injectable } from "@angular/core";
-import { Observable, switchMap, map, forkJoin } from "rxjs";
+import { Observable, switchMap, map, forkJoin, tap } from "rxjs";
 import { ItemDetails } from "../models/item-details";
 import { environment as env } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
@@ -53,5 +54,15 @@ export class SavedItemService {
       .get<SavedItem>(`${this.API_BASE_URL}/items/${jikanId}`, {
         headers: this.authService.getAuthorizationHeaders(),
       });
+  }
+
+  createSavedItem(item:RequestSavedItem): Observable<SavedItem>{
+    return this.http
+      .post<SavedItem>(`${this.API_BASE_URL}/items`, item ,{
+        headers: this.authService.getAuthorizationHeaders(),
+      })
+      .pipe(
+        tap((response) => console.log(response))
+      );
   }
 }
