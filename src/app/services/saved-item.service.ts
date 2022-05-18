@@ -60,9 +60,19 @@ export class SavedItemService {
     return this.http
       .post<SavedItem>(`${this.API_BASE_URL}/items`, item ,{
         headers: this.authService.getAuthorizationHeaders(),
-      })
-      .pipe(
-        tap((response) => console.log(response))
-      );
+      });
+  }
+
+  deleteSavedItem(itemId:number): Observable<SavedItem>{
+    return this.http
+      .delete<SavedItem>(`${this.API_BASE_URL}/items/${itemId}`,{
+        headers: this.authService.getAuthorizationHeaders(),
+      });
+  }
+
+  updateSavedItem(itemId:number, updatedSavedItem:RequestSavedItem): Observable<SavedItem>{
+    return this.http.put<SavedItem>(`${this.API_BASE_URL}/items/${itemId}`, updatedSavedItem,{
+      headers: this.authService.getAuthorizationHeaders(),
+    });
   }
 }

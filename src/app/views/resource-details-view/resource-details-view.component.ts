@@ -89,9 +89,7 @@ export class ResourceDetailsView implements OnInit {
       },
       error: (e:HttpErrorResponse) => {
         const errorCode = e.error.code as string;
-        this.snackBar.open(ErrorResponseMessages[errorCode as keyof typeof ErrorResponseMessages], "Dismiss", {
-          duration: 3000,
-        });
+        this.showError(errorCode);
       },
       complete: () => {
         //Update UI with new call
@@ -100,17 +98,59 @@ export class ResourceDetailsView implements OnInit {
     });
   }
 
+  deleteSavedItem(){
+    this.savedItemService.deleteSavedItem(this.savedItem.id).subscribe({
+      next: () => {
+        this.snackBar.open("Rating deleted successfully", "Dismiss", {
+          duration: 3000,
+        });
+      },
+      error: (e:HttpErrorResponse) => {
+        const errorCode = e.error.code as string;
+        this.showError(errorCode);
+      },
+      complete: () => {
+        //Update UI with new call
+        this.findExistInUserSavedItems();
+      },
+    })
+  }
+
+  updateSavedItem(){
+    const newSavedItem = {
+      rating: Number(this.assignedRating),
+    } as RequestSavedItem;
+    this.savedItemService.updateSavedItem(this.savedItem.id,newSavedItem).subscribe({
+      next: () => {
+        this.snackBar.open("Rating updated successfully", "Dismiss", {
+          duration: 3000,
+        });
+      },
+      error: (e:HttpErrorResponse) => {
+        const errorCode = e.error.code as string;
+        this.showError(errorCode);
+      },
+      complete: () => {
+        //Update UI with new call
+        this.findExistInUserSavedItems();
+      },
+    })
+  }
+
+  private showError(errorCode:string){
+    this.snackBar.open(ErrorResponseMessages[errorCode as keyof typeof ErrorResponseMessages], "Dismiss", {
+      duration: 3000,
+    });
+  }
+
   getResourceDetailsByNameAndId(type: string, id: string) {
     this.isLoading = true;
     this.jikamService.getResourceDetailsByTypeAndId(type, id).subscribe({
       next: (response: any) => {
         this.details = response.data;
-        console.log(this.details);
       },
       error: (e) => {
         this.isLoading = false;
-        //TODO: Redirect to not found
-        console.error(e);
       },
       complete: () => {
         this.isLoading = false;
