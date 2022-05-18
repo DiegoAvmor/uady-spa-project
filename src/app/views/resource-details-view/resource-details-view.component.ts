@@ -1,3 +1,6 @@
+import { SavedItem } from './../../models/savedItem';
+import { SavedItemService } from './../../services/saved-item.service';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { JikanService } from "../../services/jikan.service";
@@ -12,11 +15,15 @@ export class ResourceDetailsView implements OnInit {
   details!: ItemDetails;
   isLoading = true;
   isRated = true;
-  isSaved = true;
-
+  isSessionActive = false;
+  isSaved = false;
+  savedItem:SavedItem;
+  isSavedItemLoading = true;
   constructor(
-    private apiService: JikanService,
-    private route: ActivatedRoute
+    private jikamService: JikanService,
+    private route: ActivatedRoute,
+    private authService:AuthService,
+    private savedItemService:SavedItemService,
   ) {}
 
   ngOnInit(): void {
@@ -25,12 +32,31 @@ export class ResourceDetailsView implements OnInit {
     const resourceId = <string>this.route.snapshot.paramMap.get("id");
     //Get current resource data from the API
     this.getResourceDetailsByNameAndId(resourceName, resourceId);
-    //TODO: Implement method to obtain the personal rating of the resource
+    //Get Session
+    const userSession = this.authService.getUserSessionSync();
+    if(userSession){
+      this.isSessionActive = true;
+      this.savedItemService.findJikanItemExistanceInSavedItems(Number(resourceId))
+      .subscribe({
+        next: (response:SavedItem) => {
+          this.isSaved = true;
+          this.savedItem = response;
+        },
+        error: (e) => {
+          this.isSaved = false;
+          this.isSavedItemLoading = false;
+        },
+        complete: () => {
+          this.isSavedItemLoading = false;
+        },
+      });
+      //Check if item is already saved by the user
+    }
   }
 
   getResourceDetailsByNameAndId(type: string, id: string) {
     this.isLoading = true;
-    this.apiService.getResourceDetailsByTypeAndId(type, id).subscribe({
+    this.jikamService.getResourceDetailsByTypeAndId(type, id).subscribe({
       next: (response: any) => {
         this.details = response.data;
         console.log(this.details);
