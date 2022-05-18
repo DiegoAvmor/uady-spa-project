@@ -21,7 +21,7 @@ export class UserService {
     return this.http
     .get<User[]>(
       `${this.API_BASE_URL}/users`,
-      { headers: this.getAuthorizationHeaders()}
+      { headers: this.authService.getAuthorizationHeaders()}
     );
   }
 
@@ -30,14 +30,9 @@ export class UserService {
     return this.http
     .delete<User>(
       `${this.API_BASE_URL}/users/${userId}`,
-      { headers: this.getAuthorizationHeaders()}
+      { headers: this.authService.getAuthorizationHeaders()}
     );
   }
 
-  getAuthorizationHeaders(){
-    const token = this.authService.getUserSessionSync()?.jwt.token;
-    let requestHeaders = new HttpHeaders();
-    return requestHeaders.set('Authorization', `Bearer ${token!}`);
-  }
 
 }

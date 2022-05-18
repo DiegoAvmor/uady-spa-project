@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment as env } from "src/environments/environment";
@@ -70,5 +70,10 @@ export class AuthService {
 
   private getJwtText(): string | null {
     return localStorage.getItem(LocalStorageKeys.JWT);
+  }
+
+  getAuthorizationHeaders():HttpHeaders{
+    const token = this.getUserSessionSync()?.jwt.token;
+    return new HttpHeaders().set('Authorization', `Bearer ${token!}`);
   }
 }
