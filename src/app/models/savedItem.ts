@@ -1,3 +1,5 @@
+import { SavedItemType } from "./savedItemType";
+
 export interface SavedItem {
   id: number;
   third_party_item_id: number;
@@ -6,7 +8,4 @@ export interface SavedItem {
   saved_item_type_id: SavedItemType;
 }
 
-interface SavedItemType {
-  id: number;
-  name: string;
-}
+
