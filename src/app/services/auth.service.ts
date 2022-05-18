@@ -72,8 +72,8 @@ export class AuthService {
     return localStorage.getItem(LocalStorageKeys.JWT);
   }
 
-  getAuthorizationHeaders():HttpHeaders{
+  getAuthorizationHeaders(): HttpHeaders {
     const token = this.getUserSessionSync()?.jwt.token;
-    return new HttpHeaders().set('Authorization', `Bearer ${token!}`);
+    return new HttpHeaders().set("Authorization", `Bearer ${token!}`);
   }
 }

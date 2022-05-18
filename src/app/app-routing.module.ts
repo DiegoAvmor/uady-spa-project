@@ -1,4 +1,4 @@
-import { AdminViewComponent } from './views/admin-view/admin-view.component';
+import { AdminViewComponent } from "./views/admin-view/admin-view.component";
 import { HomeViewComponent } from "./views/home-view/home-view.component";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeViewComponent },
   //Admin routes
-  { path: "admin/users/list", component: AdminViewComponent}
+  { path: "admin/users/list", component: AdminViewComponent },
 ];
 
 @NgModule({
