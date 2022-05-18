@@ -1,6 +1,6 @@
+import { ProfileSavedItem } from "./../../../models/profileSavedItem";
 import { Component, Input, OnInit } from "@angular/core";
 import { ItemCategory } from "src/app/models/ItemCategory";
-import { SavedItem } from "src/app/models/SavedItem";
 
 const itemDisplayCategories: Map<ItemCategory, string> = new Map();
 itemDisplayCategories.set("anime", "Anime");
@@ -13,7 +13,7 @@ itemDisplayCategories.set("manga", "Manga");
 })
 export class ProfileSavedItemsComponent implements OnInit {
   @Input() headerTitle!: string;
-  @Input() dataSource!: SavedItem[];
+  @Input() dataSource!: ProfileSavedItem[];
   @Input() itemCategory!: ItemCategory;
 
   displayedColumns = ["itemCategory", "rating", "status", "year"];

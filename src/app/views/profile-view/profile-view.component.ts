@@ -1,39 +1,8 @@
+import { SavedItemService } from "./../../services/saved-item.service";
+import { ProfileSavedItem } from "./../../models/profileSavedItem";
 import { Component, OnInit } from "@angular/core";
-import { SavedItem } from "src/app/models/SavedItem";
-
-const dummyAnimes: SavedItem[] = [
-  {
-    url: "/resource/anime/21",
-    title: "One Piece",
-    rating: 9.8,
-    status: "Airing",
-    year: 1999,
-  },
-  {
-    url: "/resource/anime/44042",
-    title: "Holo no Graffiti",
-    rating: 8.0,
-    status: "Finished",
-    year: 2020,
-  },
-];
-
-const dummyMangas: SavedItem[] = [
-  {
-    url: "/resource/manga/2",
-    title: "Berserk",
-    rating: 9.8,
-    status: "Finished",
-    year: 1999,
-  },
-  {
-    url: "/resource/manga/656",
-    title: "Vagabond",
-    rating: 8.0,
-    status: "Finished",
-    year: 2020,
-  },
-];
+import { AuthService } from "src/app/services/auth.service";
+import { Categories } from "src/constants";
 
 @Component({
   selector: "app-profile-view",
@@ -41,13 +10,32 @@ const dummyMangas: SavedItem[] = [
   styleUrls: ["./profile-view.component.sass"],
 })
 export class ProfileViewComponent implements OnInit {
-  savedMangas!: SavedItem[];
-  savedAnimes!: SavedItem[];
+  username: string;
+  savedMangas!: ProfileSavedItem[];
+  savedAnimes!: ProfileSavedItem[];
 
-  constructor() {
-    this.savedAnimes = dummyAnimes;
-    this.savedMangas = dummyMangas;
+  ngOnInit(): void {
+    //Get Session
+    const userSession = this.authService.getUserSessionSync();
+    this.username = userSession!.jwt.payload.user.name;
+    //Get SavedItems of type Manga
+    this.savedItemService
+      .getUserSavedItemsOfType(Categories.MANGA)
+      .subscribe((response: ProfileSavedItem[]) => {
+        console.log(response);
+        this.savedMangas = response;
+      });
+    //Get SavedItems of type Anime
+    this.savedItemService
+      .getUserSavedItemsOfType(Categories.ANIME)
+      .subscribe((response: ProfileSavedItem[]) => {
+        console.log(response);
+        this.savedAnimes = response;
+      });
   }
 
-  ngOnInit(): void {}
+  constructor(
+    private authService: AuthService,
+    private savedItemService: SavedItemService
+  ) {}
 }

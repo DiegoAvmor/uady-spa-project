@@ -21,7 +21,7 @@ export class JikanService {
     type: string,
     id: string
   ): Observable<ItemDetails> {
-    return this.http.get<any>(this.apiUrl + `/${type}/${id}`).pipe(
+    return this.http.get<ItemDetails>(this.apiUrl + `/${type}/${id}`).pipe(
       //map((response:Data) => new ResourceDetails(response.data)),
       tap((_) => console.log(`Got data from resource ${type} with id ${id}`))
     );
