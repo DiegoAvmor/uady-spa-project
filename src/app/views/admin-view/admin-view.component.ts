@@ -1,34 +1,32 @@
-import { ApiService } from 'src/app/services/api.service';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogComponent } from 'src/app/components/model/delete-dialog/delete-dialog.component';
-import { User } from 'src/app/models/user';
+import { UserService } from "./../../services/user.service";
+import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { DeleteDialogComponent } from "src/app/components/model/delete-dialog/delete-dialog.component";
+import { User } from "src/app/models/user";
 
 @Component({
-  selector: 'app-admin-view',
-  templateUrl: './admin-view.component.html',
-  styleUrls: ['./admin-view.component.sass']
+  selector: "app-admin-view",
+  templateUrl: "./admin-view.component.html",
+  styleUrls: ["./admin-view.component.sass"],
 })
 export class AdminViewComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'action'];
-  dataSource:User[] = [];
+  displayedColumns: string[] = ["name", "email", "action"];
+  dataSource: User[] = [];
   isLoading = true;
   error = false;
   success = false;
 
-  constructor(private apiService: ApiService,public dialog: MatDialog){}
+  constructor(private userService: UserService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getAllUsers();
   }
 
-
-  getAllUsers():void{
+  getAllUsers(): void {
     this.isLoading = true;
     this.error = false;
     this.success = true;
-    this.apiService.getAllUsers()
-    .subscribe({
+    this.userService.getAllUsers().subscribe({
       next: (response: User[]) => {
         this.dataSource = response;
         this.isLoading = false;
@@ -46,17 +44,16 @@ export class AdminViewComponent implements OnInit {
       },
     });
   }
-  openDeleteDialog(selectedUser:User):void{
+  openDeleteDialog(selectedUser: User): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      width: '500px',
-      data: { id:selectedUser.id , name: selectedUser.name},
-      disableClose: true
+      width: "500px",
+      data: { id: selectedUser.id, name: selectedUser.name },
+      disableClose: true,
     });
 
-    dialogRef.afterClosed().subscribe( () => {
+    dialogRef.afterClosed().subscribe(() => {
       //Update view with changes
       this.getAllUsers();
     });
   }
-
 }

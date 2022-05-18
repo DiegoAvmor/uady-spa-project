@@ -20,7 +20,7 @@ export class Jwt {
     return JSON.parse(atob(this.getPayloadText()));
   }
 
-  get token(): string{
+  get token(): string {
     return this.jwtText;
   }
 }
