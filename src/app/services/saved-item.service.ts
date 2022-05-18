@@ -1,7 +1,7 @@
 import { RequestSavedItem } from "./../models/request/requestSavedItem";
 import { SavedItem } from "./../models/savedItem";
 import { Injectable } from "@angular/core";
-import { Observable, switchMap, map, forkJoin, tap } from "rxjs";
+import { Observable, switchMap, map, forkJoin } from "rxjs";
 import { ItemDetails } from "../models/item-details";
 import { environment as env } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";

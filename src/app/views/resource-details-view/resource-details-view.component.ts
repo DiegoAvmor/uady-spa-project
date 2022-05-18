@@ -68,7 +68,7 @@ export class ResourceDetailsView implements OnInit {
           this.savedItem = response;
           this.assignedRating = this.savedItem.user_rating.toString();
         },
-        error: (e) => {
+        error: () => {
           this.isSaved = false;
           this.isSavedItemLoading = false;
           this.assignedRating = "notRated";
