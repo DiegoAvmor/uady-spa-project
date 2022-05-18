@@ -7,5 +7,3 @@ export interface SavedItem {
   user_id: number;
   saved_item_type_id: SavedItemType;
 }
-
-

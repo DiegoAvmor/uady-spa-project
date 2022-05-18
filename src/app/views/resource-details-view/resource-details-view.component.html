@@ -31,10 +31,23 @@
       <mat-card *ngIf="isSessionActive" class="mt-2 mb-5">
         <mat-card-content *ngIf="!isSavedItemLoading">
           <div *ngIf="isSaved" class="row">
-            <button class="btn btn-primary col-md-10" (click)="updateSavedItem()">Update</button>
-            <button class="btn btn-danger col-md-2" (click)="deleteSavedItem()"><mat-icon>delete</mat-icon></button>
+            <button
+              class="btn btn-primary col-md-10"
+              (click)="updateSavedItem()"
+            >
+              Update
+            </button>
+            <button class="btn btn-danger col-md-2" (click)="deleteSavedItem()">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
-          <button class="btn btn-danger w-100" *ngIf="!isSaved" (click)="createSavedItem()">Save</button>
+          <button
+            class="btn btn-danger w-100"
+            *ngIf="!isSaved"
+            (click)="createSavedItem()"
+          >
+            Save
+          </button>
           <div class="form-group">
             <label>Personal rating:</label>
             <select

@@ -9,7 +9,7 @@ export enum ErrorResponseMessages {
   SER03 = "Incorrect username or password",
   SER04 = "Entry already exists",
   SYS01 = "Unexpected error",
-  SYS02 = "Unexpected error"
+  SYS02 = "Unexpected error",
 }
 
 // Default category of the search view
