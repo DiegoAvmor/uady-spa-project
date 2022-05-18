@@ -1,4 +1,4 @@
-import { ApiService } from 'src/app/services/api.service';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from 'src/app/components/model/delete-dialog/delete-dialog.component';
@@ -16,7 +16,7 @@ export class AdminViewComponent implements OnInit {
   error = false;
   success = false;
 
-  constructor(private apiService: ApiService,public dialog: MatDialog){}
+  constructor(private userService: UserService,public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -27,7 +27,7 @@ export class AdminViewComponent implements OnInit {
     this.isLoading = true;
     this.error = false;
     this.success = true;
-    this.apiService.getAllUsers()
+    this.userService.getAllUsers()
     .subscribe({
       next: (response: User[]) => {
         this.dataSource = response;
