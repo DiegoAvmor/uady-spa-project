@@ -1,0 +1,39 @@
+<div *ngIf="!showSuccess && !showError">
+  <h1 mat-dialog-title>Delete User</h1>
+  <div mat-dialog-content>
+    <p>Are you sure you want to delete the user {{ data.name }}?</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">No</button>
+    <button
+      mat-button
+      (click)="deleteUser(data.id)"
+      cdkFocusInitial
+      color="primary"
+    >
+      Yes
+    </button>
+  </div>
+</div>
+<div *ngIf="showSuccess">
+  <div mat-dialog-content>
+    <mat-icon color="primary">check_circle</mat-icon>
+    <p class="dialog-text">Success</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()" cdkFocusInitial color="primary">
+      Ok
+    </button>
+  </div>
+</div>
+<div *ngIf="showError">
+  <div mat-dialog-content>
+    <mat-icon color="primary">error</mat-icon>
+    <p class="dialog-text">Something went wrong</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()" cdkFocusInitial color="primary">
+      Ok
+    </button>
+  </div>
+</div>
