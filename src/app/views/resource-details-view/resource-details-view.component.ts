@@ -1,4 +1,3 @@
-import { ErrorResponseMessages } from "src/constants";
 import { RequestSavedItem } from "./../../models/request/requestSavedItem";
 import { SavedItem } from "./../../models/savedItem";
 import { SavedItemService } from "./../../services/saved-item.service";
@@ -9,6 +8,15 @@ import { JikanService } from "../../services/jikan.service";
 import { ItemDetails } from "../../models/item-details";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpErrorResponse } from "@angular/common/http";
+
+enum ErrorResponseMessages {
+  SER01 = "Validation error",
+  SER02 = "Entry not found error",
+  SER03 = "Incorrect username or password",
+  SER04 = "Entry already exists",
+  SYS01 = "Unexpected error",
+  SYS02 = "Unexpected error",
+}
 @Component({
   selector: "app-resource-details",
   templateUrl: "./resource-details-view.component.html",
