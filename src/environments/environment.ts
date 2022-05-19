@@ -7,12 +7,16 @@ export const environment = {
   log: {
     debug: true,
   },
+  host: 'http://127.0.0.1:4200',
   api: {
     jikan: {
       url: "https://api.jikan.moe/v4",
     },
     auth: {
       url: "http://localhost:8080/api",
+    },
+    qr: {
+      url: "https://api.qrserver.com/v1",
     },
   },
 };

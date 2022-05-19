@@ -4,6 +4,7 @@ import { lastValueFrom } from "rxjs";
 import { Anime } from "src/app/models/anime";
 import { Manga } from "src/app/models/manga";
 import { JikanService } from "src/app/services/jikan.service";
+import { QrcodeService } from "src/app/services/qrcode.service";
 import { Categories, defaultCategory } from "src/constants";
 
 function sideEffect<Val>(effect: (_: Val) => unknown) {
@@ -26,6 +27,7 @@ const range =
 export class SearchViewComponent implements OnInit {
   category: Categories = defaultCategory;
   query = "";
+  qrUrl = "";
   Categories = Categories;
   currentPage = 1;
   items: Array<Anime | Manga> = [];
@@ -35,12 +37,14 @@ export class SearchViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private jikanService: JikanService
+    private jikanService: JikanService,
+    private qrcodeService: QrcodeService
   ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(({ query, category }) => {
       this.query = query;
+      this.qrUrl = this.qrcodeService.buildqrcode(this.router.url);
       if (Object.values(Categories).includes(category)) {
         this.category = category;
       }
