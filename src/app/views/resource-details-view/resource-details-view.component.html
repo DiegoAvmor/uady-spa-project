@@ -28,10 +28,26 @@
         </mat-card-content>
       </mat-card>
       <!--Saved and Rate resource-->
-      <mat-card class="mt-2 mb-5">
-        <mat-card-content>
-          <button class="btn btn-primary w-100" *ngIf="isSaved">Save</button>
-          <button class="btn btn-danger w-100" *ngIf="!isSaved">Remove</button>
+      <mat-card *ngIf="isSessionActive" class="mt-2 mb-5">
+        <mat-card-content *ngIf="!isSavedItemLoading">
+          <div *ngIf="isSaved" class="row">
+            <button
+              class="btn btn-primary col-md-10"
+              (click)="updateSavedItem()"
+            >
+              Update
+            </button>
+            <button class="btn btn-danger col-md-2" (click)="deleteSavedItem()">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <button
+            class="btn btn-danger w-100"
+            *ngIf="!isSaved"
+            (click)="createSavedItem()"
+          >
+            Save
+          </button>
           <div class="form-group">
             <label>Personal rating:</label>
             <select
@@ -39,7 +55,9 @@
               class="form-select"
               name="rating"
               id="ratingSelect"
+              [(ngModel)]="assignedRating"
             >
+              <option value="notRated" hidden>Rating Not Selected</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -52,6 +70,9 @@
               <option value="10">10</option>
             </select>
           </div>
+        </mat-card-content>
+        <mat-card-content *ngIf="isSavedItemLoading">
+          <mat-spinner></mat-spinner>
         </mat-card-content>
       </mat-card>
     </div>
