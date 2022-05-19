@@ -2,6 +2,7 @@
   mat-button
   disableRipple="true"
   routerLink="{{ redirectUrl }}"
+  *ngIf="!denyRendering && userIsAllowed"
   class="{{
     activeUrl === redirectUrl ? 'active-item-link' : 'inactive-item-link'
   }}"

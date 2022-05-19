@@ -1,4 +1,4 @@
-import { environment } from "../../environments/environment";
+import { environment as env } from "../../environments/environment";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
@@ -12,8 +12,8 @@ const max_searched_items = 15;
 @Injectable({
   providedIn: "root",
 })
-export class ApiService {
-  private apiUrl: string = environment.apiUrl;
+export class JikanService {
+  private apiUrl: string = env.api.jikan.url;
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,7 @@ export class ApiService {
     type: string,
     id: string
   ): Observable<ItemDetails> {
-    return this.http.get<any>(this.apiUrl + `/${type}/${id}`).pipe(
+    return this.http.get<ItemDetails>(this.apiUrl + `/${type}/${id}`).pipe(
       //map((response:Data) => new ResourceDetails(response.data)),
       tap((_) => console.log(`Got data from resource ${type} with id ${id}`))
     );

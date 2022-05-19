@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://api.jikan.moe/v4",
+  log: {
+    debug: true,
+  },
+  api: {
+    jikan: {
+      url: "https://api.jikan.moe/v4",
+    },
+    auth: {
+      url: "http://localhost:8080/api",
+    },
+  },
 };
 
 /*
