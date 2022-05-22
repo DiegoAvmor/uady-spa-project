@@ -18,6 +18,14 @@ export const environment = {
     qr: {
       url: "https://api.qrserver.com/v1",
     },
+    contactemailReceiver: {
+      email: "assertdominanceproject@gmail.com",
+      pass: "AssertDom123!#@",
+    }, 
+    contactemailSender: {
+      email: "assertdominance.noreply@gmail.com",
+      pass: "Testpass12345!@#",
+    }
   },
 };
 
