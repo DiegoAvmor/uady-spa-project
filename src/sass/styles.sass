@@ -16,3 +16,13 @@
     .mat-card-actions
         button
             width: 100%
+
+@media print
+    .hidden-on-print
+        display: none !important
+
+    // Remove header and footer from print
+    @page
+        margin: 0
+    body
+        margin: 1.6cm

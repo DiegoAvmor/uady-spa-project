@@ -1,9 +1,9 @@
-<div class="saved-items">
+<div #content class="saved-items hidden-on-print">
   <div class="saved-items__header">
     <h2 class="saved-items__header__title">{{ headerTitle }}</h2>
-    <div class="saved-items__header__export-options">
+    <div class="saved-items__header__export-options hidden-on-print">
       <div>Export as:</div>
-      <button mat-raised-button color="primary">PDF</button>
+      <button mat-raised-button color="primary" (click)="onPrint()">PDF</button>
       <button mat-raised-button color="primary">Excel</button>
     </div>
   </div>
